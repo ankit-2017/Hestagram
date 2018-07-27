@@ -4,6 +4,7 @@ import gmail from './gmail.png';
 import './App.css';
 import axios from 'axios';
 import LocalStorage from 'localstorage';
+import ip from './env'
 
 import {Button, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Alert, Image} from 'react-bootstrap';
 
@@ -38,6 +39,7 @@ class Login extends Component{
         const foo = new LocalStorage('UserData');
         const abc = foo.get('UserData');
         this.setState({loginData: abc[1]});
+        console.log('ip', ip);
 
 
     }

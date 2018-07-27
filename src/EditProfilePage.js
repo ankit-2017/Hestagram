@@ -394,10 +394,7 @@ class EditProfilePage extends Component{
             width:'100%',
             display:'inline-block'
         }
-        const style1={
-            display:'inline-block',
-            marginLeft:'20px'
-        }
+
 
         const {imgSrc} = this.state
         const {crop} = this.state

@@ -2,62 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92277409-93f1-4e58-ad17-7c7138e54430" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/hestagram.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin_header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin_login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin_panel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ChangePassword.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EditProfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EditProfilePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Notification.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReusableUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserSuggestion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserSuggestion2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User_profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UsersInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crop_image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/forgot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gmail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hobbit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image-cropper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image_load.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/no-image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/noimage.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/passwordReset.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/registerServiceWorker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/suggestion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/third.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/verification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditProfilePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -107,8 +55,8 @@
       <file leaf-file-name="EditProfilePage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EditProfilePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-820">
-              <caret line="352" column="46" lean-forward="true" selection-start-line="352" selection-start-column="46" selection-end-line="352" selection-end-column="46" />
+            <state relative-caret-position="4020">
+              <caret line="405" column="51" lean-forward="true" selection-start-line="405" selection-start-column="51" selection-end-line="405" selection-end-column="51" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -116,11 +64,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserData.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="env.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/env.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="212" column="46" lean-forward="true" selection-start-line="212" selection-start-column="46" selection-end-line="212" selection-end-column="46" />
+            <state relative-caret-position="140">
+              <caret line="86" column="52" lean-forward="true" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -147,6 +116,7 @@
       <find>header-icons</find>
       <find>style1</find>
       <find>fData</find>
+      <find>http://localhost:4000</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/Admin_login.js" />
         <option value="$PROJECT_DIR$/src/Admin_panel.js" />
         <option value="$PROJECT_DIR$/node_modules/react-image-compressor/src/js/components/react-image-compressor.js" />
-        <option value="$PROJECT_DIR$/src/Login.js" />
         <option value="$PROJECT_DIR$/src/Notification.js" />
         <option value="$PROJECT_DIR$/src/suggestion.js" />
         <option value="$PROJECT_DIR$/src/UserSuggestion2.js" />
@@ -179,10 +148,12 @@
         <option value="$PROJECT_DIR$/src/ReusableUtils.js" />
         <option value="$PROJECT_DIR$/src/UserSuggestion.js" />
         <option value="$PROJECT_DIR$/src/home.css" />
-        <option value="$PROJECT_DIR$/src/EditProfilePage.js" />
         <option value="$PROJECT_DIR$/src/image_load.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/UserData.js" />
+        <option value="$PROJECT_DIR$/src/EditProfilePage.js" />
+        <option value="$PROJECT_DIR$/src/env.js" />
+        <option value="$PROJECT_DIR$/src/Login.js" />
       </list>
     </option>
   </component>
@@ -302,12 +273,12 @@
       <workItem from="1532506644088" duration="3088000" />
       <workItem from="1532529671402" duration="5316000" />
       <workItem from="1532535754803" duration="7822000" />
-      <workItem from="1532589805743" duration="18994000" />
+      <workItem from="1532589805743" duration="22820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="432856000" />
+    <option name="totallyTimeSpent" value="436682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
@@ -317,6 +288,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32882884" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="npm" order="2" side_tool="true" />
@@ -330,7 +302,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,13 +311,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="109" column="44" selection-start-line="109" selection-start-column="44" selection-end-line="109" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6840">
@@ -527,13 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1720">
-          <caret line="93" column="20" selection-start-line="93" selection-start-column="20" selection-end-line="94" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ChangePassword.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -652,23 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserSuggestion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="88" column="94" lean-forward="true" selection-start-line="88" selection-start-column="94" selection-end-line="88" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditProfilePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-820">
-          <caret line="352" column="46" lean-forward="true" selection-start-line="352" selection-start-column="46" selection-end-line="352" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/reason-tags-input/build/styles.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -713,10 +653,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="212" column="46" lean-forward="true" selection-start-line="212" selection-start-column="46" selection-end-line="212" selection-end-column="46" />
+        <state relative-caret-position="140">
+          <caret line="86" column="52" lean-forward="true" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserSuggestion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="88" column="94" lean-forward="true" selection-start-line="88" selection-start-column="94" selection-end-line="88" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EditProfilePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4020">
+          <caret line="405" column="51" lean-forward="true" selection-start-line="405" selection-start-column="51" selection-end-line="405" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
