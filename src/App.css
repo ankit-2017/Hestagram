@@ -1,0 +1,145 @@
+
+#main , #forgot{
+    margin-top: 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+.form-control {
+    border-radius: 2px;
+    border-color: #d1d3d6;
+}
+.form-control:focus{
+    border-color: #09a9c1;
+}
+input[type=text], input[type=email], input[type=password] {
+    background-color: #e8eaed;
+}
+.panel-default{
+    border-color: #d6d8db;
+}
+#appname{
+    text-align: center;
+    font-family: 'Lobster Two', cursive;
+    font-size: 40px;
+    position: relative;
+}
+#appname::after{
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    background-color: #09a9c1;
+    left: 40%;
+    top: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+
+}
+#form {
+    margin-top: 20px;
+}
+label{
+
+    font-weight: bold;
+}
+.btn {
+    border-radius: 2px;
+}
+#signup {
+    background-color: #0b9ee2;
+    color: white;
+}
+#text1{
+    text-align: center;
+    margin-top: 25px;
+    color: #d0d3d8;
+    font-weight: bold;
+    font-family: Arial;
+
+}
+#facebookLogin
+{
+    background-color: #0679d1;
+    color: white;
+    font-size: 16px;
+    position: relative;
+}
+#facebookLogin span {
+    margin-right: 10px;
+}
+#orText{
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+#orText::after{
+    content: "";
+    position: absolute;
+    width: 43%;
+    height: 1px;
+    background-color: gray;
+    top: 50%;
+    margin-left: 10px;
+}
+#orText::before{
+    content: "";
+    position: absolute;
+    width: 43%;
+    height: 1px;
+    background-color: gray;
+    top: 50%;
+    margin-left: 7px;
+    left: 0;
+}
+.terms{
+    text-align: center;
+}
+.terms a {
+    text-decoration: none;
+}
+#last-div{
+    text-align: center;
+    font-size: 16px;
+}
+ /*css for main-image */
+#main-img{
+    margin-top: 50px;
+    text-align: center;
+
+}
+#main-side{
+    border: 1px solid #d1d3d6;
+    background-color: #e3e6ea;
+    padding: 40px;
+    margin-top: 70px;
+    text-align: center;
+}
+#sign1{
+    cursor: pointer;
+}
+#forgot {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#signup-link{
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+#loginForm{
+    margin-top: 40px;
+}
+
+#forgot{
+    margin-top:10%;
+}
+#invalidEmail
+{
+    color: red;
+    font-size: 13px;
+}
+#ok, #EmailOk{
+    color: green;
+    font-size: 13px;
+}

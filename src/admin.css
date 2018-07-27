@@ -1,0 +1,76 @@
+#admin-pic {
+    width: 80px;
+    height: 80px;
+}
+#admin-table{
+    margin-top: 30px;
+}
+#admin-table Table tr td{
+
+    vertical-align: middle;
+}
+#admin-sidebar{
+    margin-top: 30px;
+
+}
+#admin-sidebar ul{
+    background-color: #e0e2e2;
+    padding: 20px;
+    border-radius: 5px;
+}
+#admin-sidebar ul li{
+    list-style: none;
+    padding: 10px 0 10px 10px;
+}
+#admin-sidebar ul li:hover{
+    transition-delay: 300ms;
+    transition: 700ms ease-in-out;
+    background-color: #eaf7f7;
+    border-radius: 4px;
+}
+#admin-sidebar ul li a{
+    font-size: 17px;
+    color: black;
+    text-decoration: none;
+}
+#main-div{
+    margin-top: 30px;
+}
+#info ul{
+    margin-top: 25px;
+}
+#info ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 20px;
+}
+#post-detail Image {
+    width: 100%;
+    height: 200px;
+
+}
+#post-heading{
+    text-align: center;
+}
+#post-detail {
+    position: relative;
+}
+#delete-post{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    background-color: #f29d9d;
+    color: white;
+    padding: 3px 8px 3px 8px;
+    text-decoration: none;
+
+}
+#post-detail img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+#admin-table Table tbody tr:hover{
+    cursor: pointer;
+}

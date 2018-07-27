@@ -1,0 +1,628 @@
+header{
+    padding: 5px 0 5px 0;
+    background-color: #edeeef;
+    border-bottom: 1px solid #c2c4c6;
+
+}
+#logo1
+{
+    width: 40px;
+    height: 40px;
+    margin-top: -10px;
+
+}
+
+#logoText{
+    font-family: 'Lobster Two', cursive;
+    font-size: 30px;
+    display: inline-block;
+    position: relative;
+    margin-left: 20px;
+}
+#logoText::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 40px;
+    background-color: gray;
+    top: 10%;
+    left: -6%;
+    /*margin-right: 70px;*/
+
+}
+.search-input{
+    padding-top: 8px;
+}
+.header-icons ul{
+    padding: 0;
+    margin: 0;
+}
+.header-icons ul li{
+    list-style: none;
+    display: inline-block;
+}
+.header-icons ul li .fa {
+    font-size: 30px;
+    font-weight: lighter;
+    margin-left: 30px;
+    color: #4f5051;
+    margin-top: 10px;
+}
+/* css for Home */
+section, #userData{
+    font-family: 'Quicksand', sans-serif;
+}
+.fa-bell-o{
+    position: relative;
+}
+#notification{
+    position: absolute;
+    background-color: #e3eaed;
+    z-index: 1;
+    border-radius: 5px;
+    top: 140%;
+    width: 250px;
+}
+#notification ul{
+    padding: 20px;
+    margin: 0;
+}
+#notification ul li{
+    list-style: none;
+
+}
+#notification ul li a {
+    font-size: 15px;
+    text-decoration: none;
+}
+#username{
+    padding: 10px 0 10px 10px;
+}
+#username img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+#username span{
+    font-size: 17px;
+
+}
+#username p{
+    margin-left: 60px;
+    color: gray;
+    line-height: 0px;
+}
+
+#postImage ul{
+
+    padding: 0;
+    margin: 0;
+}
+#postImage ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    width: 50%;
+    height: 250px;
+
+}
+#postImage ul li img{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e8ebef;
+    border-radius: 7px;
+
+}
+
+#home-post{
+    margin-top: 20px;
+}
+#user_detail1 {
+    padding-left: 60px;
+}
+#user_detail1 span {
+    font-size: 22px;
+    margin-left: 20px;
+}
+#user_detail1 h3{
+    display: inline-block;
+}
+#edit{
+    padding: 7px 20px 7px 20px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    color: black;
+    margin-left: 20px;
+    display: inline-block;
+}
+#user_profile{
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+#user_detail{
+    margin-top: 40px;
+}
+#detail{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+#detail ul{
+    padding: 0;
+    margin: 0;
+}
+#detail ul li{
+    list-style: none;
+    margin-left: 30px;
+    display: inline-block;
+}
+#detail ul li span{
+    font-size: 16px;
+    font-weight: bold;
+
+}
+#detail p{
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 70px;
+    margin-left: 30px;
+}
+.user-post{
+    margin-top: 30px;
+}
+.user-post img{
+    width: 100%;
+    height: 200px;
+}
+.user-post h3{
+    text-align: center;
+}
+.post-form{
+    margin-top: 30px;
+
+}
+
+#attach {
+    padding: 10px 20px 10px 20px;
+    background-color: #122b40;
+    color: white;
+    border-radius: 3px;
+    border: 0;
+}
+
+
+/* CSS for EditProfile */
+
+#main-grid{
+    margin-top: 30px;
+    border: 1px solid #dedfe0;
+    border-radius: 5px;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+#main-grid Col {
+    border: 1px solid gray;
+}
+.sidebar {
+    border-right: 1px solid #dedfe0;
+}
+.sidebar ul{
+    padding: 0;
+    margin: 0;
+}
+.sidebar ul li{
+    list-style: none;
+    margin-bottom: 20px;
+
+}
+.sidebar ul li:last-child{
+    margin-bottom: 0;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    color: #777777;
+    font-size: 25px;
+
+}
+#edit-photo img {
+    width: 40px;
+    height: 40px;
+
+}
+#editUser p{
+    font-size: 17px;
+    margin-bottom: 0;
+}
+#editUser a{
+    font-size: 14px;
+}
+#top-detail{
+    margin-bottom: 20px;
+}
+#custom{
+    border: 0;
+}
+#compose{
+
+    padding: 10px 20px 10px 20px;
+    /*border: 1px solid #777777;*/
+    border-radius: 3px;
+    font-size: 22px;
+    text-decoration: none;
+    /*color: #4b4e51;*/
+    color: white;
+    background-color: #126c82;
+
+}
+#cpost{
+    font-size: 20px;
+    margin-left: 10px;
+}
+/* End CSS for EditProfile */
+
+#custom-button{
+    padding: 20px 30px 20px 30px;
+    background-color: #d1d3d6;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+#label1{
+    background-color: #d1d3d6;
+}
+.fa-plus{
+    font-size: 30px;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+#modal-div{
+    padding: 15px 30px 15px 30px;
+    margin: 0 20px 0 20px;
+    border-radius: 5px;
+}
+#modal-div ul{
+    padding: 0;
+    margin: 0;
+}
+#modal-div ul li{
+    display: inline-block;
+    margin-left: 20px;
+}
+#modal-div ul li:first-child{
+    margin-left: 0;
+}
+#modal-div ul li img{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+
+}
+#img1{
+    position: relative;
+}
+.edit1{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    padding: 3px 5px 3px 5px;
+    cursor: pointer;
+}
+
+/* css for  mymodal */
+
+#mymodal{
+    display: none;
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    background-color: #333333;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 40px;
+    transition: 700ms ease-in-out;
+    transition-delay: 400ms;
+}
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+#cropimg {
+    width: 200px;
+    height: 100px;
+}
+#modal-content{
+    width: 70%;
+    margin: auto;
+
+    padding: 20px 0 20px 20px;
+    background-color: #eaebed;
+}
+.ReactCrop{
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+#dropdown_user{
+    display: none;
+    position: absolute;
+    z-index: 20;
+    width: 300px;
+    top: 100%;
+    background-color: #dce0e8;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#dropdown_user ul{
+    padding: 0;
+    margin: 0;
+}
+#dropdown_user ul li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+#dropdown_user ul li a{
+    color: black;
+    font-size: 16px;
+}
+
+/* css for UserData */
+#userdataImage{
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+#userData ul{
+    padding: 0;
+    margin: 0;
+}
+#userData ul li{
+    list-style: none;
+    margin-right: 30px;
+    display: inline-block;
+}
+#userData ul li span{
+    font-size: 17px;
+
+}
+#follow{
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background-color: #0b9ee2;
+    color: white;
+    font-size: 15px;
+}
+#usermain, #buttondiv{
+    margin-top: 30px;
+}
+#location{
+    float: right;
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 17px;
+    margin-top: 15px;
+    color: black;
+
+}
+#userData #secondul{
+    margin-top: 30px;
+}
+#time{
+    font-size: 13px;
+    color: rgb(55, 92, 153);
+    /*font-weight: bold;*/
+}
+#custom-file{
+    padding: 20px 30px 20px 30px;
+    background-color: #d1d3d6;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+.Modal-modal-0-1-3{
+    border-radius: 5px;
+    width: 40%;
+}
+#noResult{
+    color: red;
+}
+#output1, #output2, #output3, #output4{
+    width: 100%;
+    height: 100px;
+}
+#userImg{
+    transform: scale(1,1);
+    transition: transform 400ms ease-in-out 100ms;
+}
+#userImg:hover{
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+
+    z-index: 20;
+
+}
+#userdataIMG{
+    cursor: pointer;
+
+}
+#userdataIMG:hover{
+    opacity: 0.8;
+}
+/* css for suggestion */
+#suggestion-heading{
+    text-align: center;
+}
+#autocomplete{
+    background-color: #c2c4c6;
+    color: black;
+    padding: 20px;
+    position: absolute;
+    z-index: 20;
+    border-radius: 5px;
+
+}
+#thirdul{
+    margin-top: 30px;
+}
+#thirdul p{
+    font-size: 17px;
+}
+#image-form{
+    margin-top: 10px;
+}
+#profileDiv{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+#profilepic{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+#selectButton{
+    margin-right: 10px;
+}
+#fileButton{
+    display: none;
+}
+
+#image2 #style1{
+    position: relative;
+    cursor: pointer;
+}
+#fadeImage2{
+    opacity:0.2
+
+}
+#image2 #style1 #styleFortext{
+    font-size: 30px;
+    font-weight: bolder;
+    color:#666768;
+    position:absolute;
+    text-align:center;
+    left:0;
+    width:100%;
+    transform:translateY(-50%);
+    top:50%;
+
+    z-index:5
+}
+#postImage ul #customStyle{
+    width: 100%;
+    height: 400px;
+}
+#mycanvas{
+    display: none;
+}
+#saveButton{
+    margin-top: 20px;
+}
+#suggestionProfile{
+    width: 120px;
+    height: 120px;
+}
+
+@media only screen and (max-width: 768px){
+    #postImage ul #customStyle{
+        height: 300px;
+    }
+    #image2 #style1 #styleFortext{
+        font-size: 25px;
+    }
+    #custom-float{
+        float: left;
+    }
+    #postImage ul li{
+        width: 50%;
+        height: 200px;
+
+    }
+
+    /* responsive css from image_load.js */
+
+    #modal-div{
+        padding: 10px 20px 10px 20px;
+        margin: 0 10px 0 10px;
+    }
+    #modal-div ul li{
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #modal-div ul li img{
+        height: 100px;
+        width: 100px;
+        padding-bottom: 10px;
+
+    }
+    #custom-file{
+        padding: 10px 20px 10px 20px;
+        background-color: #d1d3d6;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    /* css from user_profile.js */
+    #user_profile{
+        width: 100px;
+        height: 100px;
+        float: none;
+    }
+    #userProfileDiv{
+        text-align: center;
+    }
+    #user_detail1{
+        text-align: center;
+        padding-left: 0;
+    }
+    #detail{
+        margin-left: 0;
+        text-align: center;
+    }
+    /* css from UserData.js */
+
+    #userdataImage{
+        float: none;
+        width: 100px;
+        height: 100px;
+    }
+    #userdataImageDiv{
+        text-align: center;
+    }
+    #userData{
+        text-align: center;
+    }
+    #left-heading{
+        text-align: center;
+    }
+    .search-input{
+        text-align: center;
+    }
+    .header-icons{
+        text-align: center;
+    }
+    #firstSpan{
+        margin-left: 0;
+    }
+    #suggestionProfile{
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+/* end of css for suggestion */

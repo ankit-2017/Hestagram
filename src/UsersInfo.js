@@ -1,0 +1,107 @@
+import React, {Component} from 'react';
+import './admin.css';
+import Admin from './Admin_header';
+import user from './user.png';
+import axios from 'axios';
+import { Grid, Row, Col, Button, Image, FormGroup} from 'react-bootstrap';
+
+class UsersInfo extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            uid:'',
+            udata:'',
+            image:[],
+            fdata:[]
+        }
+    }
+    componentWillMount(){
+        const uid = this.props.match.params.id;
+        this.setState({uid:uid})
+    }
+    componentDidMount(){
+        const self=this;
+        axios.post('http://localhost:4000/api/ShowData',{
+            fid:self.state.uid
+        })
+            .then(function (response) {
+                console.log(response.data);
+                self.setState({udata:response.data})
+            })
+            .catch(error=>{
+                console.log(error)
+            });
+
+        axios.get('http://localhost:4000/api/ShowImage/' + self.state.uid)
+            .then(function (response) {
+                console.log("file response", response);
+                self.setState({image:response.data.image})
+            })
+            .catch(error=>{
+                console.log(error);
+            });
+
+        axios.post('http://localhost:4000/api/AdminFollow',{
+            userid:self.state.uid
+        })
+            .then(function (response) {
+                console.log("follow response", response);
+                self.setState({fdata:response.data})
+            })
+            .catch(error=>{
+                console.log(error);
+            });
+    }
+    render(){
+        return(
+            <div>
+                <Admin/>
+                <div id="main-div">
+                    <Grid>
+                        <Row>
+                            <Col md={4}>
+                                <Image src={user} id="user_profile" circle alt="Profile pic" />
+                            </Col>
+                            <Col md={8}>
+                                <div id="info">
+                                    <ul>
+                                        <li>{this.state.udata.username}</li>
+                                        <li>{this.state.udata.Email}</li>
+                                        <li>{this.state.udata.fullname}</li>
+                                    </ul>
+                                    <ul>
+                                        <li>{this.state.image.length} posts</li>
+                                        <li>34 followers</li>
+                                        <li>{this.state.fdata.length} following</li>
+                                    </ul>
+                                    <Col md={4} mdOffset={1}>
+                                        <FormGroup>
+                                            <Button bsStyle="danger" block>Block Account</Button>
+                                        </FormGroup>
+                                    </Col>
+                                </div>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <h3 id="post-heading">Users posts</h3>
+                            {this.state.image.map((item, i)=>{
+
+
+                            return <Col md={3}>
+                                <div id="post-detail">
+                                    <Image src={item.image} rounded responsive/>
+                                    {/*<Link to="/delete" title="Delete"  id="delete-post">&times;</Link>*/}
+                                </div>
+                            </Col>
+                            })}
+
+
+                        </Row>
+                    </Grid>
+                </div>
+            </div>
+        );
+    }
+}
+export default UsersInfo

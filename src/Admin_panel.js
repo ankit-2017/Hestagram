@@ -1,0 +1,103 @@
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import './admin.css';
+import user from './user.png';
+import Admin from './Admin_header';
+import axios from 'axios';
+import Timestamp from 'react-timestamp';
+import { Grid, Row, Col, Table, Image, Badge} from 'react-bootstrap';
+
+class Admin_panel extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            adminData:[]
+        }
+    }
+    componentDidMount(){
+        const self = this;
+        axios.post('http://localhost:4000/api/userDataAdmin')
+            .then(function (response) {
+                console.log(response);
+                self.setState({adminData:response.data})
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+    }
+    UserDetail=(event)=>{
+        let key = event.target;
+        console.log("key value",key);
+      // this.props.history.push('/admin/Users')
+    };
+    render(){
+        console.log("admin data",this.state.adminData);
+        return(
+            <div>
+                <Admin />
+                <Grid>
+                    <Row>
+                        <Col md={3}>
+                            <div id="admin-sidebar">
+                                <ul>
+                                    <li><Link to="/adminPanel">Dashboard</Link></li>
+                                    <li><Link to="#">Total users <Badge>{this.state.adminData.length}</Badge> </Link></li>
+                                    {/*<li><Link to="#">Blocked Users <Badge>12</Badge> </Link></li>*/}
+                                    {/*<li><Link to="#">Deleted Posts <Badge>20</Badge> </Link></li>*/}
+                                    {/*<li><Link to="#">Profile</Link></li>*/}
+                                    {/*<li><Link to="#">Change password</Link></li>*/}
+                                </ul>
+                            </div>
+                        </Col>
+
+                        <Col md={9}>
+                            <div id="admin-table">
+                                <Table responsive striped>
+                                    <thead>
+                                    <tr>
+                                        <th>Profile pic</th>
+                                        <th>Username</th>
+                                        <th>Email id</th>
+
+                                        <th>Joining date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {this.state.adminData.map((item, i)=>{
+
+
+                                       return <tr onClick={this.UserDetail} >
+
+                                            <td >
+                                               <Image src={user} responsive circle id="admin-pic" />
+                                            </td>
+
+                                            <td>
+
+                                                <strong><Link to={"/admin/Users/"+item._id}>{item.username}</Link></strong>
+                                            </td>
+                                            <td>
+                                                {item.Email}
+                                            </td>
+
+                                            <td>
+
+                                                <span><Timestamp time={item.time1} format='date' /></span>
+                                            </td>
+
+                                        </tr>;
+
+
+
+                                    })}
+                                    </tbody>
+                                </Table>
+                            </div>
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
+        );
+    }
+}
+export default Admin_panel
