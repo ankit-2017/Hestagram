@@ -2,32 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92277409-93f1-4e58-ad17-7c7138e54430" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin_header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin_header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin_login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin_panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin_panel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangePassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditProfilePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notification.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserSuggestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserSuggestion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserSuggestion2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserSuggestion2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/User_profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UsersInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UsersInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crop_image.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/forgot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/forgot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image-cropper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image_load.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/image_load.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/passwordReset.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/passwordReset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/suggestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/suggestion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/verification.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="566" column="17" selection-start-line="566" selection-start-column="17" selection-end-line="566" selection-end-column="17" />
+              <caret line="566" column="14" lean-forward="true" selection-start-line="566" selection-start-column="14" selection-end-line="566" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -78,7 +55,16 @@
         <entry file="file://$PROJECT_DIR$/src/env.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="40">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -181,11 +167,12 @@
         <option value="$PROJECT_DIR$/src/UserData.js" />
         <option value="$PROJECT_DIR$/src/UsersInfo.js" />
         <option value="$PROJECT_DIR$/src/verification.js" />
-        <option value="$PROJECT_DIR$/src/env.js" />
         <option value="$PROJECT_DIR$/src/UserSuggestion.js" />
         <option value="$PROJECT_DIR$/src/UserSuggestion2.js" />
         <option value="$PROJECT_DIR$/src/Home.js" />
         <option value="$PROJECT_DIR$/src/home.css" />
+        <option value="$PROJECT_DIR$/src/env.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -306,12 +293,12 @@
       <workItem from="1532529671402" duration="5316000" />
       <workItem from="1532535754803" duration="7822000" />
       <workItem from="1532589805743" duration="27141000" />
-      <workItem from="1532756404932" duration="57335000" />
+      <workItem from="1532756404932" duration="58235000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="498338000" />
+    <option name="totallyTimeSpent" value="499238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
@@ -344,13 +331,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/image_load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3520">
-          <caret line="186" column="56" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Signup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -713,13 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/passwordReset.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -764,7 +737,21 @@
     <entry file="file://$PROJECT_DIR$/src/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
-          <caret line="566" column="17" selection-start-line="566" selection-start-column="17" selection-end-line="566" selection-end-column="17" />
+          <caret line="566" column="14" lean-forward="true" selection-start-line="566" selection-start-column="14" selection-end-line="566" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
         </state>
       </provider>
     </entry>
