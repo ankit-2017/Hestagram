@@ -4,6 +4,7 @@ import Admin from './Admin_header';
 import user from './user.png';
 import axios from 'axios';
 import { Grid, Row, Col, Button, Image, FormGroup} from 'react-bootstrap';
+import ip from './env'
 
 class UsersInfo extends Component{
     constructor(props){
@@ -21,7 +22,7 @@ class UsersInfo extends Component{
     }
     componentDidMount(){
         const self=this;
-        axios.post('http://localhost:4000/api/ShowData',{
+        axios.post(`${ip}/api/ShowData`,{
             fid:self.state.uid
         })
             .then(function (response) {
@@ -32,16 +33,16 @@ class UsersInfo extends Component{
                 console.log(error)
             });
 
-        axios.get('http://localhost:4000/api/ShowImage/' + self.state.uid)
+        axios.get(`${ip}/api/ShowUserImage/` + self.state.uid)
             .then(function (response) {
                 console.log("file response", response);
-                self.setState({image:response.data.image})
+                self.setState({image:response.data.data})
             })
             .catch(error=>{
                 console.log(error);
             });
 
-        axios.post('http://localhost:4000/api/AdminFollow',{
+        axios.post(`${ip}/api/AdminFollow`,{
             userid:self.state.uid
         })
             .then(function (response) {

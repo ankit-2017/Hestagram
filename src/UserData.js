@@ -8,6 +8,7 @@ import LocalStorage from 'localstorage';
 import Viewer from 'react-viewer';
 import 'react-viewer/dist/index.css';
 import {Button, Col, Grid, Row} from 'react-bootstrap';
+import ip from './env'
 
 class UserData extends Component{
     constructor(props){
@@ -38,7 +39,7 @@ class UserData extends Component{
     }
     componentDidMount(){
         const self=this;
-        axios.post('http://localhost:4000/api/ShowData',{
+        axios.post(`${ip}/api/ShowData`,{
             fid:self.state.followId
         })
             .then(function (response) {
@@ -53,7 +54,7 @@ class UserData extends Component{
             });
             console.log("user id", self.state.userData1.data2._id);
             console.log("following id", self.state.followId);
-        axios.post('http://localhost:4000/api/CheckFollow',{
+        axios.post(`${ip}/api/CheckFollow`,{
             userid:self.state.userData1.data2._id,
             following_id:self.state.followId
         })
@@ -71,15 +72,15 @@ class UserData extends Component{
                 console.log(error);
             });
 
-        axios.get('http://localhost:4000/api/ShowImage/' + self.state.followId)
+        axios.get(`${ip}/api/ShowUserImage/` + self.state.followId)
             .then(function (response) {
                 console.log("file response", response);
-                self.setState({image:response.data.image})
+                self.setState({image:response.data.data})
             })
             .catch(error=>{
                 console.log(error);
             });
-        axios.post('http://localhost:4000/api/AdminFollow',{
+        axios.post(`{ip}/api/AdminFollow`,{
             userid:self.state.followId
         })
             .then(function (response) {
@@ -92,7 +93,7 @@ class UserData extends Component{
     }
     Follow = ()=>{
         const self=this;
-        axios.post('http://localhost:4000/api/follow',{
+        axios.post(`${ip}/api/follow`,{
             userid:self.state.userData1.data2._id,
             fid:self.state.followId
         })
@@ -114,11 +115,11 @@ class UserData extends Component{
     render(){
         const image5=[];
         this.state.image.map((item, i)=>{
-            image5.push({src:item.image1, alt:'hestagram'});
-            image5.push({src:item.image2, alt:'hestagram'});
-            image5.push({src:item.image3, alt:'hestagram'});
-            image5.push({src:item.image4, alt:'hestagram'});
+            item.images.map((item2, i2)=>{
+                image5.push({src:`${ip}/upload/assets/`+item2, alt:'hestagram'});
+            })
         });
+
 
 
         return(
@@ -136,7 +137,7 @@ class UserData extends Component{
                                      id="userdataImage"
                                      alt="Profile pic"/>
                                 :
-                                <img src={'http://localhost:4000/upload/assets/profile/'+this.state.userInfo.profile_img}
+                                <img src={`${ip}/upload/assets/profile/`+this.state.userInfo.profile_img}
                                      className="img-circle"
                                      id="userdataImage"
                                      alt="profile "
@@ -197,66 +198,25 @@ class UserData extends Component{
                         <h3> User posts </h3>
                         <Row>
                             {this.state.image.map((item, i)=>{
-                                return <span>
-                                <Col md={3}>
-                                    {item.image1!== undefined?
-                                        <span>
-                                    <img src={item.image1} id="userdataIMG" className="img-rounded" onClick={() => { this.setState({ visible: !this.state.visible }); } } alt="Users posts" />
-                                    <Viewer
-                                        visible={this.state.visible}
-                                        onClose={() => { this.setState({visible: false }); } }
-                                        images={image5}
-                                    />
-                                    <h5>{item.caption}</h5>
-                                        </span>
-                                        :null
-                                    }
-                                </Col>
+                                return <span key={i}>
+                                        {item.images.map((image, i)=>{
+                                            return <Col md={3} key={i}>
+                                                        <span>
+                                                            <img src={`${ip}/upload/assets/`+image}
+                                                                 id="userdataIMG"
+                                                                 className="img-rounded"
+                                                                 onClick={() => { this.setState({ visible: !this.state.visible }); } }
+                                                                 alt="Users posts"
+                                                            />
+                                                            <Viewer
+                                                                visible={this.state.visible}
+                                                                onClose={() => { this.setState({visible: false }); } }
+                                                                images={image5}
+                                                            />
+                                                        </span>
+                                                    </Col>
+                                        })}
 
-                                    <Col md={3}>
-                                    {item.image2!== undefined?
-                                        <span>
-                                    <img src={item.image2} id="userdataIMG" className="img-rounded" onClick={() => { this.setState({ visible: !this.state.visible }); } } alt="Users posts" />
-                                    <Viewer
-                                        visible={this.state.visible}
-                                        onClose={() => { this.setState({visible: false }); } }
-                                        images={image5}
-                                    />
-                                    <h5>{item.caption}</h5>
-                                        </span>
-                                        :null
-                                    }
-                                </Col>
-
-                                    <Col md={3}>
-                                    {item.image3!== undefined?
-                                        <span>
-                                    <img src={item.image3} id="userdataIMG" className="img-rounded" onClick={() => { this.setState({ visible: !this.state.visible }); } } alt="Users posts" />
-                                    <Viewer
-                                        visible={this.state.visible}
-                                        onClose={() => { this.setState({visible: false }); } }
-                                        images={image5}
-                                    />
-                                    <h5>{item.caption}</h5>
-                                        </span>
-                                        :null
-                                    }
-                                </Col>
-
-                                    <Col md={3}>
-                                    {item.image4!== undefined?
-                                        <span>
-                                    <img src={item.image4} id="userdataIMG" className="img-rounded" onClick={() => { this.setState({ visible: !this.state.visible }); } } alt="Users posts" />
-                                    <Viewer
-                                        visible={this.state.visible}
-                                        onClose={() => { this.setState({visible: false }); } }
-                                        images={image5}
-                                    />
-                                    <h5>{item.caption}</h5>
-                                        </span>
-                                        :null
-                                    }
-                                </Col>
                                 </span>
                             })}
                         </Row>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
+import ip from './env'
 
 import ReactGoogleMapLoader from "react-google-maps-loader";
 import ReactGooglePlacesSuggest from "react-google-places-suggest";
@@ -62,7 +63,7 @@ class Suggest extends Component{
       const hobbies = document.getElementById('hobby').value;
 
         const self=this;
-        axios.post('http://localhost:4000/api/suggestion',{
+        axios.post(`${ip}/api/suggestion`,{
         city:self.state.value,
         school1:schoolName,
         collage:collageName,
@@ -253,7 +254,7 @@ class Suggest extends Component{
 
                                     </Well>
                                     <Well>
-                                        <Link to="#"> <p style={buttonStyle1} >Skip</p></Link>
+                                        <Link to="/home"> <p style={buttonStyle1} >Skip</p></Link>
                                         <Button type="submit" bsStyle="primary"  style={buttonStyle2} >Next</Button>
                                     </Well>
                                 </Form>

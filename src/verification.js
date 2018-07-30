@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import gmail from './gmail.png';
 import './App.css';
 import axios from 'axios';
+import ip from './env'
 import {Button, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Image} from 'react-bootstrap';
 
 class Login extends Component{
@@ -27,7 +28,7 @@ class Login extends Component{
     };
     Login1=(event)=>{
         event.preventDefault();
-        axios.post('http://localhost:4000/api/Login',{
+        axios.post(`${ip}/api/Login`,{
             username:this.state.username,
             password:this.state.password
         })

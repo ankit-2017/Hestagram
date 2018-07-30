@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Button, Col, Form, FormControl, FormGroup, ControlLabel, Alert} from 'react-bootstrap';
 import axios from 'axios';
 import LocalStorage from "localstorage";
+import ip from './env'
 
 
 
@@ -34,7 +35,7 @@ class ChangePassword extends Component{
         }
         else {
             const self=this;
-            axios.post('http://localhost:4000/api/ChangePassword',{
+            axios.post(`${ip}/api/ChangePassword`,{
                 username: self.state.UserData.data2.username,
                 oldpas:oldpas,
                 newpas:newpas,

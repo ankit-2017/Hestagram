@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import ip from './env'
 
 import {Button, Col,ControlLabel, Form, FormControl, FormGroup, Alert} from 'react-bootstrap';
 
@@ -49,7 +50,7 @@ class PasswordReset extends Component{
           this.setState({wrong:false});
           console.log('executing else part for axios');
           const self = this;
-          axios.post('http://localhost:4000/api/PasswordReset',{
+          axios.post(`${ip}/api/PasswordReset`,{
               oldpass: self.state.oldPassword,
               newpas:self.state.newPassword,
               userEmail:self.state.userEmail
@@ -86,11 +87,6 @@ class PasswordReset extends Component{
                     </Alert>: null }
 
                     <Form onSubmit={this.handleReset} >
-
-                        {/*<FormGroup>*/}
-                            {/*<Label>Old password</Label>*/}
-                            {/*<FormControl type="password" name="password" onChange={this.handlePassword}  />*/}
-                        {/*</FormGroup>*/}
 
                         <FormGroup>
                             <ControlLabel>New password</ControlLabel>

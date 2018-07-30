@@ -39,7 +39,6 @@ class Login extends Component{
         const foo = new LocalStorage('UserData');
         const abc = foo.get('UserData');
         this.setState({loginData: abc[1]});
-        console.log('ip', ip);
 
 
     }
@@ -48,7 +47,7 @@ class Login extends Component{
 
         console.log(this.state.token3);
         const self=this;
-        axios.post('http://localhost:4000/api/auth',{
+        axios.post(`${ip}/api/auth`,{
             token:this.state.token3,
             email:this.state.email1
         })
@@ -84,7 +83,7 @@ class Login extends Component{
 
         event.preventDefault();
         const self = this;
-        axios.post('http://localhost:4000/api/Login',{
+        axios.post(`${ip}/api/Login`,{
             username:this.state.username,
             password:this.state.password
         })
@@ -124,10 +123,8 @@ class Login extends Component{
     };
 
     render(){
-        // {this.state.login_success && this.state.suggestion? this.props.history.push("/suggestion") : null}
-        // {this.state.homePage? this.props.history.push('/Home'): null}
 
-        console.log('login check',this.state.loginData);
+        // console.log('login check',this.state.loginData);
         return(
     <section id="main">
         <Grid>
@@ -145,9 +142,6 @@ class Login extends Component{
                         <section id="login">
                             <Panel bsStyle="default">
                                 <Panel.Body>
-                                    {this.state.verified?<Alert bsStyle="success"><strong>
-                                        User verified! please login here</strong>
-                                    </Alert>:null}
 
                                     {this.state.loginFail?<Alert bsStyle="danger">
                                         invalid user!!
@@ -173,13 +167,6 @@ class Login extends Component{
                                     </section>
 
                                     <FormGroup>
-                                        {/*<p id="orText">or</p>*/}
-                                        {/*<Button id="facebookLogin" block>*/}
-                                            {/*<span className="fa fa-facebook-square">*/}
-
-                                            {/*</span>*/}
-                                            {/*Login with Facebook*/}
-                                        {/*</Button>*/}
                                         <FormGroup id="forgot">
                                             <Link  to="/forgot">Forgot password</Link>
                                         </FormGroup>

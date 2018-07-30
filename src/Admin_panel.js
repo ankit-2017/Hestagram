@@ -6,6 +6,7 @@ import Admin from './Admin_header';
 import axios from 'axios';
 import Timestamp from 'react-timestamp';
 import { Grid, Row, Col, Table, Image, Badge} from 'react-bootstrap';
+import ip from './env'
 
 class Admin_panel extends Component{
     constructor(props){
@@ -16,7 +17,7 @@ class Admin_panel extends Component{
     }
     componentDidMount(){
         const self = this;
-        axios.post('http://localhost:4000/api/userDataAdmin')
+        axios.post(`${ip}/api/userDataAdmin`)
             .then(function (response) {
                 console.log(response);
                 self.setState({adminData:response.data})

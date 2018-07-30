@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './App.css';
 import {Col, Alert, Panel,Button, Form, FormGroup, FormControl} from 'react-bootstrap';
+import ip from './env'
 
 class Forgot extends Component{
     constructor(props){
@@ -21,7 +22,7 @@ class Forgot extends Component{
         event.preventDefault();
         const self =this;
         console.log(this.state.user_email);
-        axios.post('http://localhost:4000/api/forgot', {
+        axios.post(`${ip}/api/forgot`, {
             Femail:self.state.user_email
         })
             .then(function (response) {

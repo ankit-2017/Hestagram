@@ -111,6 +111,7 @@ section, #userData{
     height: 100%;
     border: 2px solid #e8ebef;
     border-radius: 7px;
+    cursor: pointer;
 
 }
 
@@ -359,10 +360,9 @@ section, #userData{
     display: none;
     position: absolute;
     z-index: 20;
-    width: 300px;
+    width: 247px;
     top: 100%;
-    background-color: #dce0e8;
-    padding: 20px;
+    background-color: #e3eaed;
     border-radius: 5px;
 }
 
@@ -372,11 +372,15 @@ section, #userData{
 }
 #dropdown_user ul li{
     list-style: none;
-    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    padding: 7px 0 7px 0;
 }
 #dropdown_user ul li a{
     color: black;
     font-size: 16px;
+    padding-left: 20px;
+    text-decoration: none;
 }
 
 /* css for UserData */
@@ -438,6 +442,7 @@ section, #userData{
 }
 #noResult{
     color: red;
+    padding-left: 20px;
 }
 #output1, #output2, #output3, #output4{
     width: 100%;
@@ -521,7 +526,8 @@ section, #userData{
 
     z-index:5
 }
-#postImage ul #customStyle{
+
+#postImage ul #singleImage{
     width: 100%;
     height: 400px;
 }
@@ -535,11 +541,35 @@ section, #userData{
     width: 120px;
     height: 120px;
 }
+#tags{
+    margin-right: 10px;
+    color: blue;
+    font-weight: bolder;
+}
+#suggestionDiv{
+    background-color: #efdbcb;
+    padding: 50px;
+    border-radius: 7px;
+}
+#suggestionDiv p{
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+#SuggestionImage{
+    width: 120px;
+    height: 120px;
+}
+
+#blankPost img{
+    width: 100%;
+    height: 350px;
+}
+/* for mobile device */
 
 @media only screen and (max-width: 768px){
-    #postImage ul #customStyle{
-        height: 300px;
-    }
+
     #image2 #style1 #styleFortext{
         font-size: 25px;
     }

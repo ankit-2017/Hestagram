@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import logo1 from './logo1.png';
 import './home.css';
 import {Grid, Col, Form, Row, FormControl} from 'react-bootstrap';
+// import ip from './env'
 
 class Admin extends Component {
 
@@ -20,7 +21,7 @@ class Admin extends Component {
                         <Col md={6}>
                             <Form>
                                 <Col md={6} mdOffset={3} className="search-input">
-                                    <FormControl type="text" id="search" name="search" placeholder="Search..."></FormControl>
+                                    <FormControl type="text" id="search" name="search" placeholder="Search..."/>
                                 </Col>
                             </Form>
                         </Col>

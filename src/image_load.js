@@ -153,7 +153,17 @@ class Example extends Component {
 
             const location = document.getElementById('ploc').value;
             const self = this;
-            this.fileUpload(this.state.file1, this.state.file2, this.state.file3, this.state.file4, this.state.caption, location, self.state.userData1.data2._id)
+            this.fileUpload(
+                this.state.file1,
+                this.state.file2,
+                this.state.file3,
+                this.state.file4,
+                this.state.caption,
+                this.state.tags,
+                location,
+                self.state.userData1.data2._id,
+                self.state.userData1.data2.username
+            )
                 .then((response) => {
                     console.log(response);
                     console.log("file upload response", response.data.upload);
@@ -169,9 +179,12 @@ class Example extends Component {
 
     };
 
-    fileUpload = (file1, file2, file3, file4, caption, location, userid) => {
+    fileUpload = (file1, file2, file3, file4, caption,tags, location, userid, username) => {
         const url = 'http://localhost:4000/api/posts';
         const formData = new FormData();
+        tags.map((item,i)=>{
+            formData.append(`tag[]`,item);
+        })
         formData.append('file1',file1);
         formData.append('file2',file2);
         formData.append('file3',file3);
@@ -180,6 +193,7 @@ class Example extends Component {
         formData.append('caption', caption);
         formData.append('location', location);
         formData.append('userid', userid);
+        formData.append('username', username);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -299,17 +313,22 @@ class Example extends Component {
 
                         <div id="image-form">
                             <FormGroup>
-                                {/*<FormControl  componentClass="textarea"*/}
-                                              {/*rows="4"*/}
-                                              {/*id="cap"*/}
-                                              {/*onChange={this.addCaption}*/}
-                                              {/*placeholder="Add hashtag"*/}
+                                <FormControl  componentClass="textarea"
+                                              rows="3"
+                                              id="cap"
+                                              onChange={this.addCaption}
+                                              placeholder="Add Caption"
 
-                                {/*/>*/}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+
                                 <TagsInput
                                     onTagInput={this.handleTagInput}
                                     onTagRemove={this.handleTagRemove}
                                     onClear={this.handleTagsClear}
+                                    title="press Enter after type"
+                                    placeholder="hashtag"
                                 />
                             </FormGroup>
 

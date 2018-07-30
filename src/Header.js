@@ -5,6 +5,7 @@ import logo1 from './logo1.png';
 import './home.css';
 import axios from 'axios';
 import LocalStorage from "localstorage";
+import ip from './env'
 
 class Header extends Component {
     constructor(props){
@@ -30,7 +31,7 @@ class Header extends Component {
         const self=this;
         let notif= this.state.notif;
        this.setState({notif:!notif});
-       axios.post('http://localhost:4000/api/notification',{
+       axios.post(`${ip}/api/notification`,{
            user_id:self.state.userData.data2._id
        })
            .then(response=>{
@@ -62,13 +63,15 @@ class Header extends Component {
       const match = /^#.*$/;
       if(value.match(match)!==null){
           const self=this;
-          axios.post('http://localhost:4000/api/hashtagSearch',{
-              hashData:value
+          const hashtag=value
+          const hashtagNew = hashtag.replace('#','')
+          axios.post(`${ip}/api/hashtagSearch`,{
+              hashData:hashtagNew
           })
               .then(response=>{
                   console.log('hashtag search data', response);
                   if (response.data.hashtag.length !== 0) {
-                      self.setState({hashSearch: response.data.hashtag,search:[], noResult: false});
+                      self.setState({hashSearch: response.data.hashtag, search:[], noResult: false});
 
                   }
                   if (response.data.hashtag.length === 0) {
@@ -83,7 +86,7 @@ class Header extends Component {
       else if(value!=="" && value.match(match)===null) {
 
           const self = this;
-          axios.post('http://localhost:4000/api/search', {
+          axios.post(`{ip}/api/search`, {
               searchData: value,
               username:self.state.userData.data2.username
           })
@@ -134,13 +137,19 @@ class Header extends Component {
                                     <div id="dropdown_user" >
                                         <ul>
                                             {this.state.hashSearch.map((item1, i1)=>{
-                                                return <li>
-                                                    <Link to={'/userData/'+ item1.user_id}>{item1.caption}</Link>
-                                                </li>
+                                                return<span key={i1}>
+                                                        {item1.hashtag.map((tags, i)=>{
+                                                            return <li key={i}>
+                                                                        <Link to={'/userData/'+ item1.user_id}>{'#'+tags}</Link>
+                                                                    </li>
+                                                        })}
+
+                                                </span>
                                             })}
                                         {this.state.search.map(function(item,i){
 
-                                                return <li><Link to={'/userData/' + item._id}>{item.username}</Link>
+                                                return <li key={i}>
+                                                    <Link to={'/userData/' + item._id}>{item.username}</Link>
                                                 </li>
 
                                         })}
@@ -160,7 +169,7 @@ class Header extends Component {
                                 <ul>
                                     <li>
                                         <Link to="/UserSuggestion">
-                                            <span id="firstSpan" className="fa fa-compass" />
+                                            <span title="Discover peoples" id="firstSpan" className="fa fa-compass" />
                                         </Link>
                                     </li>
                                     <li>
@@ -194,7 +203,7 @@ class Notification extends Component{
 
                     {this.props.data.map((item, i)=>{
 
-                        return <li>
+                        return <li key={i}>
                             <Link to={'/userData/' + item.id}>
                                 <h5><strong>{item.Name}</strong> <span>start following you</span></h5>
                             </Link>

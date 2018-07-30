@@ -4,6 +4,7 @@ import {Col, Grid, Row, Image, Button} from 'react-bootstrap';
 import user from './user.png';
 import axios from 'axios';
 import LocalStorage from "localstorage";
+import ip from './env'
 
 
 class UserSuggestion2 extends Component {
@@ -25,7 +26,7 @@ class UserSuggestion2 extends Component {
     componentDidMount(){
         console.log('user city',this.state.userData.data2.city);
         const self=this;
-        axios.post('http://localhost:4000/api/userSuggestion',{
+        axios.post(`${ip}/api/userSuggestion`,{
             username:self.state.userData.data2.username,
 
         })
@@ -57,13 +58,27 @@ class UserSuggestion2 extends Component {
                                 return <Col md={3}>
                                     <div id="sBox" style={style}>
                                         <Link to={'/userData/' + item._id} >
-                                            <Image src={user} circle width="120" height="120" />
+                                            {item.profile_img !== "" ?
+                                                <Image
+                                                    src={`${ip}/upload/assets/profile/` + item.profile_img}
+                                                    alt="profile"
+                                                    id="suggestionProfile"
+                                                    circle
+                                                /> :
+                                                <Image src={user} circle id="suggestionProfile"/>
+                                            }
                                         </Link>
                                         <p><strong>{item.fullname}</strong></p>
-                                        <p>{item.college}</p>
-                                        <p>{item.city}</p>
+                                        {item.college===this.state.userData.data2.college?
+                                            <p>{item.college}</p>
+                                            :null
+                                        }
+                                        {item.city===this.state.userData.data2.city?
+                                            <p>{item.city}</p>
+                                            :null
+                                        }
                                         <Link to={'/userData/'+ item._id}>
-                                            <Button bsStyle="primary" block >View Profile</Button>
+                                            <Button bsStyle="primary" block >Follow</Button>
                                         </Link>
                                     </div>
                                 </Col>

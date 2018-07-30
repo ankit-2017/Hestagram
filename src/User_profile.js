@@ -9,7 +9,7 @@ import LocalStorage from "localstorage";
 import axios from 'axios';
 import Viewer from 'react-viewer';
 import 'react-viewer/dist/index.css';
-
+import ip from './env'
 
 class User extends Component{
     constructor(props){
@@ -45,16 +45,16 @@ class User extends Component{
         else {
 
             const self = this;
-            axios.get('http://localhost:4000/api/ShowImage/' + self.state.userData2.data2._id)
+            axios.get(`${ip}/api/ShowUserImage/` + self.state.userData2.data2._id)
                 .then(function (response) {
                     console.log("file response", response);
-                    self.setState({image:response.data.data, gallery:response.data.image})
+                    self.setState({image:response.data.data, gallery:response.data.data})
                 })
                 .catch(error=>{
                     console.log(error);
                 });
 
-            axios.post('http://localhost:4000/api/CountFollowing', {
+            axios.post(`${ip}/api/CountFollowing`, {
                 userid: self.state.userData2.data2._id
             })
                 .then(function (response) {
@@ -78,11 +78,10 @@ class User extends Component{
 
     render(){
         const image5=[];
-        this.state.gallery.map((item, i)=>{
-            image5.push({src:item.image1, alt:'hestagram'});
-            image5.push({src:item.image2, alt:'hestagram'});
-            image5.push({src:item.image3, alt:'hestagram'});
-            image5.push({src:item.image4, alt:'hestagram'});
+        this.state.image.map((item, i)=>{
+            item.images.map((item2, i2)=>{
+                image5.push({src:`${ip}/upload/assets/`+item2, alt:'hestagram'});
+            })
         });
 
 
@@ -102,7 +101,7 @@ class User extends Component{
                                              className="img-circle"
                                              alt="Profile pic"/>
                                         :
-                                        <img src={'http://localhost:4000/upload/assets/profile/'+this.state.userData2.data2.profile_img}
+                                        <img src={`${ip}/upload/assets/profile/`+this.state.userData2.data2.profile_img}
                                              id="user_profile"
                                              className="img-circle"
                                              alt="profile"
@@ -142,11 +141,11 @@ class User extends Component{
                         <h3> User posts </h3>
                             <Row>
                             {this.state.image.map((item, i)=>{
-                               return <span>
-                                <Col md={3}>
-                                   {item.image1 !== undefined ?
+                               return <span key={i}>
+                                       {item.images.map((image,i)=>{
+                                           return <Col md={3}>
                                        <span>
-                                       <img src={'http://localhost:4000/upload/assets/' + item.image1}
+                                       <img src={`${ip}/upload/assets/` + image}
                                             onClick={() => {
                                                 this.setState({visible: !this.state.visible});
                                             }}
@@ -159,80 +158,12 @@ class User extends Component{
                                                onClose={() => { this.setState({visible: false }); } }
                                                images={image5}
                                            />
-                                   <h5>{item.caption}</h5>
                                        </span>
-                                           : null
-                                   }
 
-                               </Col>
-                                <Col md={3} >
+                                           </Col>
 
-                                   {item.image2 !== undefined ?
-                                       <span>
-                                           <img src={'http://localhost:4000/upload/assets/' + item.image2}
-                                                onClick={() => {
-                                                    this.setState({visible: !this.state.visible});
-                                                }}
-                                                id="userImg"
-                                                className="img-rounded"
-                                                alt="Users posts"
-                                           />
-                                               <Viewer
-                                                   visible={this.state.visible}
-                                                   onClose={() => { this.setState({visible: false }); } }
-                                                   images={image5}
-                                               />
-                                                <h5>{item.caption}</h5>
-                                       </span>
-                                           : null
-                                   }
+                                       })}
 
-                                </Col>
-                                   <Col md={3} >
-                                   {item.image3 !== undefined ?
-                                       <span>
-                                           <img src={'http://localhost:4000/upload/assets/' + item.image3}
-                                                onClick={() => {
-                                                    this.setState({visible: !this.state.visible});
-                                                }}
-                                                id="userImg"
-                                                className="img-rounded"
-                                                alt="Users posts"
-                                           />
-                                           <Viewer
-                                           visible={this.state.visible}
-                                           onClose={() => { this.setState({visible: false }); } }
-                                           images={image5}
-                                           />
-                                           <h5>{item.caption}</h5>
-                                       </span>
-                                       : null
-                                   }
-
-                                   </Col>
-
-                                   <Col md={3} >
-                                   {item.image4 !== undefined ?
-                                       <span>
-                                           <img src={'http://localhost:4000/upload/assets/' + item.image4}
-                                                onClick={() => {
-                                                    this.setState({visible: !this.state.visible});
-                                                }}
-                                                id="userImg"
-                                                className="img-rounded"
-                                                alt="Users posts"
-                                           />
-                                           <Viewer
-                                           visible={this.state.visible}
-                                           onClose={() => { this.setState({visible: false }); } }
-                                           images={image5}
-                                           />
-                                           <h5>{item.caption}</h5>
-                                       </span>
-                                       : null
-                                   }
-
-                                   </Col>
 
                                </span>
                             })}

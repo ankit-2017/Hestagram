@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import gmail from './gmail.png';
 import './App.css';
+import ip from './env'
 import axios from 'axios';
 import {Button, Alert, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Image} from 'react-bootstrap';
 
@@ -15,7 +16,6 @@ class SignUp extends Component{
             fullname:'',
             username:'',
             password:'',
-            location:'',
             emailValidation:false,
             registration: false,
             incomplete:false,
@@ -69,36 +69,31 @@ class SignUp extends Component{
     };
 
     Password =(event)=>{
-        // const pas =/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
-
         let password = event.target.value;
-        // if(password.search(pas) == -1){
-        //     this.setState({weakpas:true, strong:false});
-        //     return false
-        // }
         this.setState({password:password});
-
-    };
-    City =(event)=>{
-        let city = event.target.value;
-        this.setState({location:city});
 
     };
     formSubmit(e){
         e.preventDefault();
         const emailVal = document.getElementById('email3').value;
+        const password = this.state.password
         const emailRejex = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+        const passwordLength=6;
+        // const pas =/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
         if(emailVal.search(emailRejex)== -1){
             this.setState({validEMail:true});
             return false
         }
+        if(password.length< passwordLength){
+            this.setState({weakpas:true, strong:false});
+            return false
+        }
         const self = this;
-        axios.post('http://localhost:4000/api/Signup', {
+        axios.post(`${ip}/api/Signup`, {
             email: this.state.email,
             fullname: this.state.fullname,
             username: this.state.username,
-            password: this.state.password,
-            location: this.state.location
+            password: this.state.password
         })
             .then(function (response) {
                 console.log(response);
@@ -118,7 +113,6 @@ class SignUp extends Component{
 
     };
     render(){
-        console.log('username',this.state.username);
         return(
             <section id="main">
                 <Grid>
@@ -147,16 +141,8 @@ class SignUp extends Component{
                                         <h4 id="text1">
                                             Sign up to see photos and videos from your friends
                                         </h4>
-                                        {/*<FormGroup>*/}
-                                            {/*<Button id="facebookLogin" block>*/}
-                                                {/*<span className="fa fa-facebook-square">*/}
-
-                                                {/*</span>*/}
-                                                {/*Login with Facebook</Button>*/}
-                                            {/*<p id="orText">or</p>*/}
-                                        {/*</FormGroup>*/}
                                         <section id="form">
-                                            <Form onSubmit={this.formSubmit} >
+                                            <Form onSubmit={this.formSubmit} autoComplete="off" >
                                                 <FormGroup>
 
                                                     <FormControl type="text" id="email3" required onChange={this.Email}  placeholder="Enter Email"/>
@@ -180,13 +166,10 @@ class SignUp extends Component{
 
                                                 <FormGroup>
                                                     <FormControl type="password" required onChange={this.Password} placeholder="Enter password"/>
-                                                    {/*{this.state.weakpas?<p id="invalidEmail" >weak password</p>:null}*/}
-                                                    {/*{this.state.strong?<p id="ok" >strong password</p>:null}*/}
+                                                    {this.state.weakpas?<p id="invalidEmail" >password must be 6 character long</p>:null}
+                                                    {/*{this.state.strong?<p id="ok" >Ok</p>:null}*/}
                                                 </FormGroup>
 
-                                                {/*<FormGroup>*/}
-                                                    {/*<FormControl type="text"  onChange={this.City} placeholder="Enter city"/>*/}
-                                                {/*</FormGroup>*/}
                                                 <FormGroup>
                                                     <Button type="submit"  id="signup" block>
                                                         Sign Up

@@ -11,6 +11,7 @@ import {post} from "axios/index";
 
 import ReactCrop from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
+import ip from './env'
 
 import {image64toCanvasRef,
     extractImageFileExtensionFromBase64,
@@ -105,7 +106,7 @@ class EditProfilePage extends Component{
     componentDidMount(){
         console.log('username', this.state.UserData.data2.username);
         const self=this;
-        axios.post('http://localhost:4000/api/getUserDetail',{
+        axios.post(`${ip}/api/getUserDetail`,{
             username: self.state.UserData.data2.username
         })
             .then(response=>{
@@ -121,7 +122,7 @@ class EditProfilePage extends Component{
     SaveName=()=>{
         const name=document.getElementById('name').value;
         const self=this;
-        axios.post('http://localhost:4000/api/EditName',{
+        axios.post(`${ip}/api/EditName`,{
             username:this.state.UserData.data2.username,
             name: name
         })
@@ -143,7 +144,7 @@ class EditProfilePage extends Component{
     SaveCity=()=>{
         const city=document.getElementById('city1').value;
         const self=this;
-        axios.post('http://localhost:4000/api/EditCity',{
+        axios.post(`${ip}/api/EditCity`,{
             username:this.state.UserData.data2.username,
             city: city
         })
@@ -165,7 +166,7 @@ class EditProfilePage extends Component{
     SaveSchool=()=>{
         const school=document.getElementById('school').value;
         const self=this;
-        axios.post('http://localhost:4000/api/EditSchool',{
+        axios.post(`${ip}/api/EditSchool`,{
             username:this.state.UserData.data2.username,
             school: school
         })
@@ -187,7 +188,7 @@ class EditProfilePage extends Component{
     SaveCollege=()=>{
         const college=document.getElementById('college').value;
         const self=this;
-        axios.post('http://localhost:4000/api/EditCollege',{
+        axios.post(`${ip}/api/EditCollege`,{
             username:this.state.UserData.data2.username,
             college: college
         })
@@ -209,7 +210,7 @@ class EditProfilePage extends Component{
     SaveEmail=()=>{
         const email=document.getElementById('Email').value;
         const self=this;
-        axios.post('http://localhost:4000/api/EditEmail',{
+        axios.post(`${ip}/api/EditEmail`,{
             username:this.state.UserData.data2.username,
             email: email
         })
@@ -231,7 +232,7 @@ class EditProfilePage extends Component{
     SaveMobile=()=>{
         const mobile=document.getElementById('mobile').value;
         const self=this;
-        axios.post('http://localhost:4000/api/EditMobile',{
+        axios.post(`${ip}/api/EditMobile`,{
             username:this.state.UserData.data2.username,
             mobile: mobile
         })
@@ -357,7 +358,7 @@ class EditProfilePage extends Component{
     };
 
     fileUpload = (Pic, username) => {
-        const url = 'http://localhost:4000/api/EditProfilePic';
+        const url = `${ip}/api/EditProfilePic`;
         const formData = new FormData();
         formData.append('Pic',Pic);
         formData.append('username', username);
@@ -408,7 +409,7 @@ class EditProfilePage extends Component{
                                 {this.state.userDetail.profile_img === "" ?
                                     <img src={user} className="img-circle" alt="profile"/> :
                                     <img
-                                        src={'http://localhost:4000/upload/assets/profile/' + this.state.userDetail.profile_img}
+                                        src={`${ip}/upload/assets/profile/` + this.state.userDetail.profile_img}
                                         className="img-circle"
                                         alt="profile"
                                     />
@@ -482,9 +483,6 @@ class EditProfilePage extends Component{
                                         </div>
                                     </div>
                                 </Modal.Body>
-                                {/*<Modal.Footer>*/}
-                                    {/*<Button onClick={this.handleHide}>Close</Button>*/}
-                                {/*</Modal.Footer>*/}
                             </Modal>
                         </Col>
                     </Row>

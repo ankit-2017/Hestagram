@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import {Button, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Alert} from 'react-bootstrap';
+import ip from './env'
 
 class Admin_login extends Component{
     constructor(props){
@@ -26,7 +27,7 @@ class Admin_login extends Component{
     ADMIN=(event)=>{
         event.preventDefault();
         const self=this;
-        axios.post('http://localhost:4000/api/AdminLogin',{
+        axios.post(`${ip}/api/AdminLogin`,{
             username:self.state.username,
             password:self.state.password
         })
