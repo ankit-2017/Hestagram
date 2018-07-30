@@ -37,13 +37,6 @@ class UserSuggestion extends Component {
             .then(response=>{
                 console.log(response);
                 self.setState({matchData:response.data.data})
-                // const box=[];
-                // response.data.data.map((item,i)=>{
-                //     if(item.finalData.length===1){
-                //         box.push(item.finalData);
-                //     }
-                // })
-                // console.log(box.length)
                 if(response.data.data.length===0){
                     self.setState({noSuggestion:true})
 
@@ -111,13 +104,12 @@ class UserSuggestion extends Component {
                                             :null
                                         }
                                         {item.city===this.state.userData.data2.city?
-                                            <p>{item.city}</p>
+                                            <p>{item.school}</p>
                                             :null
                                         }
-                                         {/*onClick={()=>this.FollowUser(item._id)}*/}
-                                         <Link style={{textDecoration:'none'}} to={'/userData/'+item._id}>
-                                                <Button bsStyle="primary"  block>Follow </Button>
-                                         </Link>
+
+                                        <Button bsStyle="primary" onClick={()=>this.FollowUser(item._id)}  block>Follow </Button>
+
 
                                     </div>
                                 </Col>

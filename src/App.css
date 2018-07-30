@@ -125,7 +125,7 @@ label{
 }
 #signup-link{
     text-align: center;
-    padding: 20px 0 20px 0;
+    padding: 20px 0 0 0;
 }
 #loginForm{
     margin-top: 40px;
@@ -142,4 +142,8 @@ label{
 #ok, #EmailOk{
     color: green;
     font-size: 13px;
+}
+#admin_login{
+    text-align: center;
+
 }

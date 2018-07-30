@@ -174,6 +174,9 @@ class Login extends Component{
                                     <Panel bsStyle="default">
 
                                             <p id="signup-link">Not have an account <Link  to="/SignUp" >Sign up</Link> </p>
+                                            <p id="admin_login" >
+                                                <Link to="/admin">admin login</Link>
+                                            </p>
 
                                     </Panel>
 
