@@ -34,62 +34,69 @@ class UserData extends Component{
         // console.log(abc[1]);
 
         this.setState({followId:follow_id});
+        if(!abc[1]){
+            window.location.href='/';
+            return false
+
+        }
 
 
     }
     componentDidMount(){
-        const self=this;
-        axios.post(`${ip}/api/ShowData`,{
-            fid:self.state.followId
-        })
-            .then(function (response) {
-                console.log("show data",response);
-                if(response.data.data!==null){
-                    let data3 = response.data;
-                    self.setState({userInfo:data3})
-                }
+            const self = this;
+            axios.post(`${ip}/api/ShowData`, {
+                fid: self.state.followId
             })
-            .catch(function (error) {
-                console.log(error);
-            });
-            console.log("user id", self.state.userData1.data2._id);
-            console.log("following id", self.state.followId);
-        axios.post(`${ip}/api/CheckFollow`,{
-            userid:self.state.userData1.data2._id,
-            following_id:self.state.followId
-        })
-            .then(function (response) {
-                console.log(response);
-                if(response.data.data===null){
+                .then(function (response) {
+                    console.log("show data", response);
+                    if (response.data.data !== null) {
+                        let data3 = response.data;
+                        self.setState({userInfo: data3})
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
-                    self.setState({followStatus:true, follow:false})
-                }
-                else {
-                    self.setState({followStatus:false, follow:true})
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
 
-        axios.get(`${ip}/api/ShowUserImage/` + self.state.followId)
-            .then(function (response) {
-                console.log("file response", response);
-                self.setState({image:response.data.data})
+            axios.post(`${ip}/api/CheckFollow`, {
+                userid: self.state.userData1.data2._id,
+                following_id: self.state.followId
             })
-            .catch(error=>{
-                console.log(error);
-            });
-        axios.post(`{ip}/api/AdminFollow`,{
-            userid:self.state.followId
-        })
-            .then(function (response) {
-                console.log("follow response", response);
-                self.setState({fdata:response.data})
+                .then(function (response) {
+                    console.log(response);
+                    if (response.data.data === null) {
+
+                        self.setState({followStatus: true, follow: false})
+                    }
+                    else {
+                        self.setState({followStatus: false, follow: true})
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+            axios.get(`${ip}/api/ShowUserImage/` + self.state.followId)
+                .then(function (response) {
+                    console.log("file response", response);
+                    self.setState({image: response.data.data})
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+
+            axios.post(`${ip}/api/AdminFollow`, {
+                userid: self.state.followId
             })
-            .catch(error=>{
-                console.log(error);
-            });
+                .then(function (response) {
+                    console.log("follow response", response);
+                    self.setState({fdata: response.data})
+                })
+                .catch(error => {
+                    console.log(error);
+                });
     }
     Follow = ()=>{
         const self=this;
@@ -104,6 +111,27 @@ class UserData extends Component{
                 }
                 else {
                     self.setState({followStatus:true, follow:false})
+                }
+
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    };
+
+    UnFollow = ()=>{
+        const self=this;
+        axios.post(`${ip}/api/UnFollow`,{
+            userid:self.state.userData1.data2._id,
+            fid:self.state.followId
+        })
+            .then(function (response) {
+                console.log(response);
+                if(response.data.error===false){
+                    self.setState({followStatus:true, follow:false})
+                }
+                else {
+                    self.setState({followStatus:false, follow:true})
                 }
 
             })
@@ -160,7 +188,7 @@ class UserData extends Component{
 
                             </ul>
                             <div id="thirdul">
-                                <table border="0"   >
+                                <table border="0">
                                     <tbody>
                                     <tr  >
                                         <td><strong>City</strong></td>
@@ -183,8 +211,8 @@ class UserData extends Component{
 
 
                             <div id="buttondiv">
-                                {this.state.followStatus?<Link id="follow" to="#" onClick={this.Follow} >Follow</Link>: null}
-                                {this.state.follow?<Button bsStyle="success" >Following</Button>: null}
+                                {this.state.followStatus?<Button bsStyle="primary" onClick={this.Follow} >Follow</Button>: null}
+                                {this.state.follow?<Button bsStyle="success" onClick={this.UnFollow} >Unfollow</Button>: null}
 
                             </div>
 

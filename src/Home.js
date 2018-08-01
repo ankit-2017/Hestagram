@@ -45,21 +45,33 @@ class Home extends Component {
         const foo = new LocalStorage('UserData');
         const abc = foo.get('UserData');
         this.setState({userData: abc[1]});
+
+        if(!abc[1]){
+            window.location.href='/';
+            return false
+
+        }
+
     }
     componentDidMount(){
         const self = this;
-        axios.get(`${ip}/api/ShowImage/` + self.state.userData.data2._id)
-            .then(function (response) {
-                console.log("file response", response);
-                self.setState({image:response.data.data});
-                if(self.state.image.length===0){
-                    self.setState({NoImg:true})
-                }
+        if(!self.state.userData){
+            this.props.history.push('/')
+        }
+        else {
+            axios.get(`${ip}/api/ShowImage/` + self.state.userData.data2._id)
+                .then(function (response) {
+                    console.log("file response", response);
+                    self.setState({image: response.data.data});
+                    if (self.state.image.length === 0) {
+                        self.setState({NoImg: true})
+                    }
 
-            })
-            .catch(error=>{
-                console.log(error);
-            })
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
 
     }
     handleShow() {
@@ -107,8 +119,7 @@ class Home extends Component {
                                                     />
                                                 }
                                                 <span>
-                                                    <Link style={{textDecoration:'none'}}
-                                                          to={"/userData/"+item.secondData._id}>{item.secondData.fullname}</Link>
+                                                    {item.secondData.fullname}
                                                 </span>
                                                 <p id="location">{item.postData.location}</p>
                                             </div>

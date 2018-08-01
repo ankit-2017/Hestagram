@@ -5,11 +5,13 @@ import { Col, Grid, Row} from 'react-bootstrap';
 import Header from './Header';
 import EditProfilePage from './EditProfilePage';
 import ChangePassword from './ChangePassword';
+import LocalStorage from "localstorage";
 class EditProfile extends Component{
     constructor(props){
         super(props);
         this.state={
             edit:true,
+            userData1:'',
             change_pass:false,
             bcolor:"#000000",
             paddingLeft:"10px",
@@ -23,6 +25,19 @@ class EditProfile extends Component{
             }
         }
     }
+    componentWillMount(){
+        const foo = new LocalStorage('UserData');
+        const abc = foo.get('UserData');
+        this.setState({userData1:abc[1]});
+
+        if(!abc[1]){
+            window.location.href='/';
+            return false
+
+        }
+
+    }
+
 
     EditPage=() =>{
 

@@ -86,7 +86,7 @@ class Header extends Component {
       else if(value!=="" && value.match(match)===null) {
 
           const self = this;
-          axios.post(`{ip}/api/search`, {
+          axios.post(`${ip}/api/search`, {
               searchData: value,
               username:self.state.userData.data2.username
           })

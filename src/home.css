@@ -451,6 +451,7 @@ section, #userData{
 #userImg{
     transform: scale(1,1);
     transition: transform 400ms ease-in-out 100ms;
+    margin-bottom: 30px;
 }
 #userImg:hover{
     cursor: pointer;
@@ -461,6 +462,7 @@ section, #userData{
 }
 #userdataIMG{
     cursor: pointer;
+    margin-bottom: 30px;
 
 }
 #userdataIMG:hover{
@@ -566,6 +568,7 @@ section, #userData{
     width: 100%;
     height: 350px;
 }
+
 /* for mobile device */
 
 @media only screen and (max-width: 768px){

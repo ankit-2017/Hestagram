@@ -104,7 +104,6 @@ class EditProfilePage extends Component{
         this.setState({UserData: abc[1]})
     }
     componentDidMount(){
-        console.log('username', this.state.UserData.data2.username);
         const self=this;
         axios.post(`${ip}/api/getUserDetail`,{
             username: self.state.UserData.data2.username
@@ -347,6 +346,7 @@ class EditProfilePage extends Component{
                 .then((response) => {
                     console.log(response);
                     self.setState({ProfileData: response.data.Picdata.profile_img});
+                    
                     alert("Change to profile Image will affect after Logout");
                     document.location.href = '/Edit-profile';
                 })

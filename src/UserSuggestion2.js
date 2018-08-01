@@ -39,6 +39,21 @@ class UserSuggestion2 extends Component {
             })
     }
 
+    FollowUser=(id)=>{
+        const self=this;
+        axios.post(`${ip}/api/follow`,{
+            userid:self.state.userData.data2._id,
+            fid:id
+        })
+            .then(function (response) {
+                document.location.href = '/home';
+
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+
 
     render() {
         const style={
@@ -71,15 +86,14 @@ class UserSuggestion2 extends Component {
                                         <p><strong>{item.fullname}</strong></p>
                                         {item.college===this.state.userData.data2.college?
                                             <p>{item.college}</p>
+                                            :
+                                        item.school===this.state.userData.data2.school?
+                                            <p>{item.school}</p>
                                             :null
                                         }
-                                        {item.city===this.state.userData.data2.city?
-                                            <p>{item.city}</p>
-                                            :null
-                                        }
-                                        <Link to={'/userData/'+ item._id}>
-                                            <Button bsStyle="primary" block >Follow</Button>
-                                        </Link>
+
+                                        <Button bsStyle="primary" onClick={()=>this.FollowUser(item._id)} block >Follow</Button>
+
                                     </div>
                                 </Col>
                             })}

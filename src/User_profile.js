@@ -19,7 +19,8 @@ class User extends Component{
             following:'',
             image:[],
             gallery:[],
-            visible: false
+            visible: false,
+            follower:''
 
         }
     }
@@ -31,18 +32,16 @@ class User extends Component{
         const foo = new LocalStorage('UserData');
         const abc = foo.get('UserData');
         this.setState({userData2:abc[1]});
+
         if(!abc[1]){
-            this.props.history.push('/');
+            window.location.href='/';
+            return false
         }
 
 
     }
     componentDidMount(){
-        const self=this;
-        if(!self.state.userData2){
-            this.props.history.push('/');
-        }
-        else {
+
 
             const self = this;
             axios.get(`${ip}/api/ShowUserImage/` + self.state.userData2.data2._id)
@@ -64,8 +63,20 @@ class User extends Component{
                 .catch(error => {
                     console.log(error);
                 })
-        }
+
+        axios.post(`${ip}/api/follower`, {
+            userid: self.state.userData2.data2._id
+        })
+            .then(function (response) {
+                console.log(response);
+                self.setState({follower: response.data.data})
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
+
+
     logout=()=>{
         let foo = new LocalStorage('UserData');
         // const abc = foo.get('UserData');
@@ -129,8 +140,14 @@ class User extends Component{
                                 <div id="detail">
                                     <ul>
                                         <li><span>{this.state.image.length} Posts</span></li>
-                                        <li><span>11 Followers</span></li>
-                                        <li><span>{this.state.userData2?this.state.following:this.props.history.push('/')} Following</span></li>
+                                        <li><span>{this.state.follower} Followers</span></li>
+                                        <li>
+                                            <span>{this.state.userData2?
+                                                this.state.following
+                                                :
+                                                this.props.history.push('/')} Following
+                                            </span>
+                                        </li>
                                     </ul>
                                     <p>{this.state.userData2?this.state.userData2.data2.fullname:this.props.history.push('/')}</p>
                                 </div>

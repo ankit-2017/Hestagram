@@ -72,7 +72,6 @@ class UsersInfo extends Component{
                                     </ul>
                                     <ul>
                                         <li>{this.state.image.length} posts</li>
-                                        <li>34 followers</li>
                                         <li>{this.state.fdata.length} following</li>
                                     </ul>
                                     <Col md={4} mdOffset={1}>
@@ -91,7 +90,7 @@ class UsersInfo extends Component{
 
                             return <Col md={3}>
                                 <div id="post-detail">
-                                    <Image src={item.image} rounded responsive/>
+                                    <Image id="userImg" src={item.image} rounded responsive/>
                                     {/*<Link to="/delete" title="Delete"  id="delete-post">&times;</Link>*/}
                                 </div>
                             </Col>
