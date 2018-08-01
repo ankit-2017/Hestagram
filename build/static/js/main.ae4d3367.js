@@ -1062,8 +1062,8 @@ if (true) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// const ip='http://206.189.134.129:4000'
-var ip='http://localhost:4000';/* harmony default export */ __webpack_exports__["a"] = (ip);
+var ip='http://206.189.134.129:4000';// const ip='http://localhost:4000'
+/* harmony default export */ __webpack_exports__["a"] = (ip);
 
 /***/ }),
 /* 17 */
@@ -49705,4 +49705,4 @@ registerValidSW(swUrl);}}).catch(function(){console.log('No internet connection 
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.f4c64126.js.map
+//# sourceMappingURL=main.ae4d3367.js.map
