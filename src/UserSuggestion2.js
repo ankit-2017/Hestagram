@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Col, Grid, Row, Image, Button} from 'react-bootstrap';
-import user from './user.png';
+import user from './images/user.png';
 import axios from 'axios';
 import LocalStorage from "localstorage";
 import ip from './env'
@@ -70,7 +70,7 @@ class UserSuggestion2 extends Component {
                         <Row>
                             <h3 style={{textAlign:'center'}} >Suggestion for you</h3>
                             {this.state.matchData.map((item,i)=>{
-                                return <Col md={3}>
+                                return <Col md={3} key={i}>
                                     <div id="sBox" style={style}>
                                         <Link to={'/userData/' + item._id} >
                                             {item.profile_img !== "" ?

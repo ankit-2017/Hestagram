@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './admin.css';
-import user from './user.png';
-import Admin from './Admin_header';
+import user from './images/user.png';
+import Admin from './AdminHeader';
 import axios from 'axios';
 import Timestamp from 'react-timestamp';
 import { Grid, Row, Col, Table, Image, Badge} from 'react-bootstrap';
 import ip from './env'
 
-class Admin_panel extends Component{
+class AdminPanel extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -101,4 +101,4 @@ class Admin_panel extends Component{
         );
     }
 }
-export default Admin_panel
+export default AdminPanel

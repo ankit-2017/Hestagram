@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import user from './user.png';
+import user from './images/user.png';
 import './home.css';
 import Header from './Header';
 import {Link} from 'react-router-dom';

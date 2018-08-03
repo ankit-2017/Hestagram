@@ -568,6 +568,9 @@ section, #userData{
     width: 100%;
     height: 350px;
 }
+#PasswordPanel{
+    margin-top: 30px;
+}
 
 /* for mobile device */
 
@@ -585,7 +588,7 @@ section, #userData{
 
     }
 
-    /* responsive css from image_load.js */
+    /* responsive css from imageLoad.js */
 
     #modal-div{
         padding: 10px 20px 10px 20px;

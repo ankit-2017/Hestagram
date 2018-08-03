@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import gmail from './gmail.png';
+import gmail from './images/gmail.png';
 import './App.css';
 import ip from './env'
 import axios from 'axios';
@@ -110,6 +110,8 @@ class SignUp extends Component{
             .catch(function (error) {
                 console.log(error);
             });
+        document.getElementById('signUpForm').reset();
+        self.setState({EmailOk:false,full:false, UserOk:false })
 
     };
     render(){
@@ -142,7 +144,7 @@ class SignUp extends Component{
                                             Sign up to see photos and videos from your friends
                                         </h4>
                                         <section id="form">
-                                            <Form onSubmit={this.formSubmit} autoComplete="off" >
+                                            <Form onSubmit={this.formSubmit} id="signUpForm" autoComplete="off" >
                                                 <FormGroup>
 
                                                     <FormControl type="text" id="email3" required onChange={this.Email}  placeholder="Enter Email"/>

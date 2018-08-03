@@ -3,7 +3,7 @@ import {Button, Col, Row, Form, FormControl, FormGroup, ControlLabel,Alert, Moda
 import {Link} from 'react-router-dom';
 import LocalStorage from 'localstorage';
 import UserData from "./UserData";
-import user from './user.png';
+import user from './images/user.png';
 import axios from 'axios';
 import ReactGoogleMapLoader from "react-google-maps-loader";
 import ReactGooglePlacesSuggest from "react-google-places-suggest";

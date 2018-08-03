@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import gmail from './gmail.png';
+import gmail from './images/gmail.png';
 import './App.css';
 import axios from 'axios';
 import LocalStorage from 'localstorage';
 import ip from './env'
+import async from 'async'
 
 import {Button, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Alert, Image} from 'react-bootstrap';
 
@@ -33,11 +34,11 @@ class Login extends Component{
 
     componentWillMount(){
         let token3 = this.props.match.params.token;
-        const email = this.props.match.params.email;
-        this.setState({token3:token3, email1:email});
+        this.setState({token3:token3});
 
         const foo = new LocalStorage('UserData');
         const abc = foo.get('UserData');
+        !abc[1]? this.props.history.push('/'): this.props.history.push('/home');
         this.setState({loginData: abc[1]});
 
 
@@ -45,31 +46,47 @@ class Login extends Component{
 
     componentDidMount(){
 
-        console.log(this.state.token3);
         const self=this;
-        axios.post(`${ip}/api/auth`,{
-            token:this.state.token3,
-            email:this.state.email1
-        })
-            .then(function (response) {
-                console.log(response);
-                console.log(response.data);
-                    if(response.data==="") {
+        if(self.state.token3!=="") {
+
+            axios.post(`${ip}/api/auth`, {
+                token: this.state.token3,
+            })
+                .then(function (response) {
+                    console.log(response);
+                    console.log(response.data);
+                    if (response.data === "") {
                         self.setState({verified: true})
                     }
 
 
-                });
-        try {
-            if(this.state.loginData.data2.username!==null){
-                this.props.history.push('/Home')
-            }
-        }
-        catch (error) {
-            this.props.history.push('/')
+                })
+                .catch(error=>{
+                    console.log('not verified')
+                })
         }
 
-    }
+
+
+            // this.state.loginData!==""?
+            //     axios.post(`${ip}/api/autoLogin`,{
+            //         token:self.state.loginData.tokenData.verification_token
+            //     })
+            //         .then(response=>{
+            //             console.log('auto login data',response)
+            //             if(response.data.data.verification_token===self.state.loginData.tokenData.verification_token){
+            //                 this.props.history.push('/Home')
+            //             }
+            //             else {
+            //                 this.props.history.push('/')
+            //             }
+            //
+            //         })
+            // :null
+
+
+            }
+
 
     username1=(event)=>{
         let username = event.target.value;
@@ -101,13 +118,10 @@ class Login extends Component{
                         id:response.data.id
 
                     });
-                    // console.log('city of users', response.data.data2.city);
-                    if(response.data.data2.city!==""){
-                       // self.setState({homePage:true})
+                    if(response.data.data2.city!=="" || response.data.data2.school!=="" || response.data.data2.college!=="" || response.data.data2.Hobbies!=="" || response.data.data2.profession!=="" ){
                         self.props.history.push('/Home')
                     }
-                    else if( response.data.data2.city===""){
-                        // self.setState({suggestion:true})
+                    else {
                         self.props.history.push('/suggestion')
                     }
                 }

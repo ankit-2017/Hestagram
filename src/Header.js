@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {Col, Grid, Row, Form, FormControl} from 'react-bootstrap';
-import logo1 from './logo1.png';
+import logo1 from './images/logo1.png';
 import './home.css';
 import axios from 'axios';
 import LocalStorage from "localstorage";

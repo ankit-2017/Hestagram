@@ -5,7 +5,7 @@ import axios from 'axios';
 import {Button, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Alert} from 'react-bootstrap';
 import ip from './env'
 
-class Admin_login extends Component{
+class AdminLogin extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -97,4 +97,4 @@ class Admin_login extends Component{
         );
     }
 }
-export default Admin_login
+export default AdminLogin

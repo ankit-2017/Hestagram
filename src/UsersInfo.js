@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './admin.css';
-import Admin from './Admin_header';
-import user from './user.png';
+import Admin from './AdminHeader';
+import user from './images/user.png';
 import axios from 'axios';
 import { Grid, Row, Col, Button, Image, FormGroup} from 'react-bootstrap';
 import ip from './env'

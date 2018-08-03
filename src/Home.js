@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom'
 import noImage from './images/noimage.gif';
 
 import LocalStorage from 'localstorage';
-import user from './user.png';
+import user from './images/user.png';
 import './home.css';
 import Header from './Header';
 import UserSuggestion2 from './UserSuggestion2';
 import 'react-responsive-modal/lib/react-responsive-modal.css';
-import Example from './image_load';
+import Example from './imageLoad';
 import axios from 'axios';
 import Timestamp from 'react-timestamp';
 import Viewer from 'react-viewer';

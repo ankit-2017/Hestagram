@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-import user from './user.png';
+import user from './images/user.png';
 import './home.css';
 import Header from './Header';
 import {Col, Grid, Row, Dropdown, MenuItem} from 'react-bootstrap';
@@ -53,7 +53,7 @@ class User extends Component{
                     console.log(error);
                 });
 
-            axios.post(`${ip}/api/CountFollowing`, {
+            axios.post(`${ip}/api/getFollowing`, {
                 userid: self.state.userData2.data2._id
             })
                 .then(function (response) {
@@ -79,7 +79,6 @@ class User extends Component{
 
     logout=()=>{
         let foo = new LocalStorage('UserData');
-        // const abc = foo.get('UserData');
         foo.del('UserData');
         this.props.history.push('/');
     };
@@ -94,6 +93,9 @@ class User extends Component{
                 image5.push({src:`${ip}/upload/assets/`+item2, alt:'hestagram'});
             })
         });
+        const style={
+            textDecoration:"none"
+        }
 
 
         return(
@@ -128,7 +130,7 @@ class User extends Component{
                                     <h3>{this.state.userData2?this.state.userData2.data2.username:this.props.history.push('/')}</h3>
                                     <Link to="/Edit-profile" id="edit" >Edit Profile</Link>
 
-                                    <Dropdown >
+                                    <Dropdown id="drop" >
                                         <Dropdown.Toggle noCaret>
                                         <span className="fa fa-gear" id="gear" />
                                         </Dropdown.Toggle>
@@ -140,12 +142,13 @@ class User extends Component{
                                 <div id="detail">
                                     <ul>
                                         <li><span>{this.state.image.length} Posts</span></li>
-                                        <li><span>{this.state.follower} Followers</span></li>
+                                        <li><span>
+                                                <Link style={style} to="/Follower">{this.state.follower} Followers</Link>
+                                            </span>
+                                        </li>
                                         <li>
-                                            <span>{this.state.userData2?
-                                                this.state.following
-                                                :
-                                                this.props.history.push('/')} Following
+                                            <span>
+                                                <Link style={style} to="/Following">{this.state.following} Following</Link>
                                             </span>
                                         </li>
                                     </ul>
@@ -160,7 +163,7 @@ class User extends Component{
                             {this.state.image.map((item, i)=>{
                                return <span key={i}>
                                        {item.images.map((image,i)=>{
-                                           return <Col md={3}>
+                                           return <Col md={3} key={i}>
                                        <span>
                                        <img src={`${ip}/upload/assets/` + image}
                                             onClick={() => {

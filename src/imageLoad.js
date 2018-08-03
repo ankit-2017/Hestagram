@@ -230,7 +230,6 @@ class Example extends Component {
     render() {
         const Key= "AIzaSyAsqj2hZecaNhLJ4nAt4TQuW8j2d9B7lwQ";
         const {search, value} = this.state;
-        console.log('hashtag', this.state.tags);
 
         return (
             <div>

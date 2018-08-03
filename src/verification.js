@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import gmail from './gmail.png';
+import gmail from './images/gmail.png';
 import './App.css';
 import axios from 'axios';
 import ip from './env'

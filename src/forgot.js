@@ -46,9 +46,9 @@ class Forgot extends Component{
                             <Alert bsStyle="danger">
                                 Email Id not registered!!
                             </Alert>
-                                : null }
+                                :
 
-                            { this.state.sendMail?
+                             this.state.sendMail?
                                 <Alert bsStyle="success">
                                     An Email with password reset link is send to {this.state.user_email}, Click on link to Reset password.
                                 </Alert>

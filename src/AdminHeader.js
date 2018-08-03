@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import logo1 from './logo1.png';
+import logo1 from './images/logo1.png';
 import './home.css';
 import {Grid, Col, Form, Row, FormControl} from 'react-bootstrap';
 // import ip from './env'

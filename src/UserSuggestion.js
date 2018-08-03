@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Col, Grid, Row, Image, Button} from 'react-bootstrap';
-import user from './user.png';
+import user from './images/user.png';
 import Header from './Header';
 import axios from 'axios';
 import './home.css';
@@ -101,11 +101,11 @@ class UserSuggestion extends Component {
                                         <p><strong>{item.fullname}</strong></p>
                                         {item.college===this.state.userData.data2.college?
                                                 <p>{item.college}</p>
-                                            :null
-                                        }
-                                        {item.city===this.state.userData.data2.city?
+                                            :
+                                        item.school===this.state.userData.data2.school?
                                             <p>{item.school}</p>
-                                            :null
+                                            :
+                                            null
                                         }
 
                                         <Button bsStyle="primary" onClick={()=>this.FollowUser(item._id)}  block>Follow </Button>
