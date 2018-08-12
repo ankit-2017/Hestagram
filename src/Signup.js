@@ -4,7 +4,10 @@ import gmail from './images/gmail.png';
 import './App.css';
 import ip from './env'
 import axios from 'axios';
+import Popup from 'react-popup';
+import './Css/PopupStyle.css'
 import {Button, Alert, Col, Grid, Row, Panel, Form, FormControl, FormGroup, Image} from 'react-bootstrap';
+
 
 
 class SignUp extends Component{
@@ -76,10 +79,29 @@ class SignUp extends Component{
     formSubmit(e){
         e.preventDefault();
         const emailVal = document.getElementById('email3').value;
+        const fullname = document.getElementById('fullname').value;
+        const user1 = document.getElementById('user6').value;
+        const password1 = document.getElementById('password6').value;
         const password = this.state.password
         const emailRejex = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
         const passwordLength=6;
-        // const pas =/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
+        if(emailVal==="" || fullname==="" || user1==="" || password1==="" ){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
+                }
+            })
+            return false
+        }
         if(emailVal.search(emailRejex)== -1){
             this.setState({validEMail:true});
             return false
@@ -88,6 +110,7 @@ class SignUp extends Component{
             this.setState({weakpas:true, strong:false});
             return false
         }
+
         const self = this;
         axios.post(`${ip}/api/Signup`, {
             email: this.state.email,
@@ -117,6 +140,7 @@ class SignUp extends Component{
     render(){
         return(
             <section id="main">
+                <Popup />
                 <Grid>
                     <Row>
                         <Col md={6}>
@@ -147,29 +171,29 @@ class SignUp extends Component{
                                             <Form onSubmit={this.formSubmit} id="signUpForm" autoComplete="off" >
                                                 <FormGroup>
 
-                                                    <FormControl type="text" id="email3" required onChange={this.Email}  placeholder="Enter Email"/>
+                                                    <FormControl type="text" id="email3" onChange={this.Email}  placeholder="Enter Email"/>
                                                     {this.state.validEMail?<p id="invalidEmail">Invalid Email</p>: null }
                                                     {this.state.EmailOk?<p id="EmailOk"><strong>OK</strong></p>: null }
                                                 </FormGroup>
 
                                                 <FormGroup>
 
-                                                    <FormControl type="text" required onChange={this.fullname}  id="fullname" placeholder="Enter full name" />
+                                                    <FormControl type="text"  onChange={this.fullname}  id="fullname" placeholder="Enter full name" />
                                                     {this.state.notfull?<p id="invalidEmail" >Name should contain only alphabets</p>:null}
                                                     {this.state.full?<p id="ok" >ok</p>:null}
                                                 </FormGroup>
 
                                                 <FormGroup>
 
-                                                    <FormControl type="text" required onChange={this.Username} placeholder="Enter Username"/>
+                                                    <FormControl type="text" onChange={this.Username} id="user6" placeholder="Enter Username"/>
                                                     {this.state.invalidUser?<p id="invalidEmail">Username should not contain space or null</p>: null }
                                                     {this.state.UserOk?<p id="ok"><strong>OK</strong></p>: null }
                                                 </FormGroup>
 
                                                 <FormGroup>
-                                                    <FormControl type="password" required onChange={this.Password} placeholder="Enter password"/>
+                                                    <FormControl type="password" onChange={this.Password} id="password6" placeholder="Enter password"/>
                                                     {this.state.weakpas?<p id="invalidEmail" >password must be 6 character long</p>:null}
-                                                    {/*{this.state.strong?<p id="ok" >Ok</p>:null}*/}
+
                                                 </FormGroup>
 
                                                 <FormGroup>

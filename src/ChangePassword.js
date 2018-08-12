@@ -5,7 +5,8 @@ import axios from 'axios';
 import LocalStorage from "localstorage";
 import ip from './env'
 
-
+import Popup from 'react-popup';
+import './Css/PopupStyle.css'
 
 class ChangePassword extends Component{
     constructor(props){
@@ -29,6 +30,23 @@ class ChangePassword extends Component{
         const oldpas= document.getElementById('pass').value;
         const newpas = document.getElementById('newpas').value;
         const cpas = document.getElementById('cpas').value;
+        if(oldpas==="" && newpas==="" && cpas===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
+                }
+            })
+            return false
+        }
         if(newpas!==cpas){
             this.setState({showMsg:true,success:false,message:'password and confirm password not matched'});
 
@@ -58,6 +76,7 @@ class ChangePassword extends Component{
     render(){
         return(
             <div>
+                <Popup />
                 {this.state.success?<Alert bsStyle='success'>Password updated successfully</Alert>:null}
                 {this.state.showMsg?<Alert bsStyle='danger'>{this.state.message}</Alert>:null}
                 <Form horizontal onSubmit={this.ChangePass} >
@@ -66,7 +85,7 @@ class ChangePassword extends Component{
                             <ControlLabel>Old Password</ControlLabel>
                         </Col>
                         <Col md={5}>
-                            <FormControl type="password" id='pass' placeholder="Enter Old password"/>
+                            <FormControl type="password"  id='pass' placeholder="Enter Old password"/>
                         </Col>
                     </FormGroup>
 
@@ -75,7 +94,7 @@ class ChangePassword extends Component{
                             <ControlLabel>New Password</ControlLabel>
                         </Col>
                         <Col md={5}>
-                            <FormControl type="password" id="newpas" placeholder="Enter New password"/>
+                            <FormControl type="password"  id="newpas" placeholder="Enter New password"/>
                         </Col>
                     </FormGroup>
 
@@ -84,7 +103,7 @@ class ChangePassword extends Component{
                             <ControlLabel>Confirm Password</ControlLabel>
                         </Col>
                         <Col md={5}>
-                            <FormControl type="password" id="cpas" placeholder="Confirm password"/>
+                            <FormControl type="password"  id="cpas" placeholder="Confirm password"/>
                         </Col>
                     </FormGroup>
 

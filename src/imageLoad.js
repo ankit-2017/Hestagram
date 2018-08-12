@@ -11,8 +11,11 @@ import 'reason-tags-input/build/styles.css';
 import { Form, FormGroup, FormControl, Button, Row, Col, Modal} from 'react-bootstrap';
 
 import './home.css';
+import './Css/PopupStyle.css'
 import LocalStorage from 'localstorage';
 import {post} from 'axios';
+
+import Popup from 'react-popup';
 
 const imageMaxSize=1000000 //bytes
 const acceptedFileType ='image/png, image/jpg, image/jpeg'
@@ -60,11 +63,37 @@ class Example extends Component {
             const currentFileType = currentFiles.type
             const currentFileSize = currentFiles.size
             if(currentFileSize> imageMaxSize){
-                alert("file size exceed limit 1 mb")
+                Popup.create({
+                    title:'Image size alert',
+                    content:"Image size exceed the limit 1 Mb ",
+                    buttons:{
+                        right:[{
+                            text:'Cancel',
+                            className:'danger',
+                            action:function () {
+                                Popup.close();
+                            }
+
+                        }]
+                    }
+                })
                 return false
             }
             if(!acceptedFileTypesArray.includes(currentFileType)){
-                alert('this file type is not allowed')
+                Popup.create({
+                    title:'Image format alert',
+                    content:"This image format is not allow",
+                    buttons:{
+                        right:[{
+                            text:'Cancel',
+                            className:'danger',
+                            action:function () {
+                                Popup.close();
+                            }
+
+                        }]
+                    }
+                })
                 return false
             }
             return true
@@ -145,7 +174,20 @@ class Example extends Component {
         const file3=this.state.file3;
         const file4=this.state.file4;
         if(file1==="" && file2==="" && file3==="" && file4===""){
-            alert('Select atleast one image');
+            Popup.create({
+                title:'Image alert',
+                content:"Please select atleast one image",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
+                }
+            })
             return false
 
         }
@@ -233,6 +275,7 @@ class Example extends Component {
 
         return (
             <div>
+                <Popup />
 
 
                 <div className="post-form">
@@ -386,6 +429,7 @@ class Example extends Component {
             </div>
         );
     }
+
 
 }
 export default Example

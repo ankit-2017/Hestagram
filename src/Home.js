@@ -16,6 +16,7 @@ import Timestamp from 'react-timestamp';
 import Viewer from 'react-viewer';
 import 'react-viewer/dist/index.css';
 import ip from './env'
+import Validator from './validator'
 
 
 class Home extends Component {
@@ -41,37 +42,30 @@ class Home extends Component {
         };
     }
     componentWillMount() {
-
+        const self = this;
         const foo = new LocalStorage('UserData');
         const abc = foo.get('UserData');
         this.setState({userData: abc[1]});
 
-        if(!abc[1]){
-            window.location.href='/';
+        if(!abc[1]) {
+            this.props.history.push('/')
             return false
 
         }
+        else{
+            const path=`${ip}/api/ShowImage/` + abc[1].data2._id
+            const method ='get'
+            const response=Validator(path, method);
 
-    }
-    componentDidMount(){
-        const self = this;
-        if(!self.state.userData){
-            this.props.history.push('/')
-        }
-        else {
-            axios.get(`${ip}/api/ShowImage/` + self.state.userData.data2._id)
-                .then(function (response) {
-                    console.log("file response", response);
-                    self.setState({image: response.data.data});
-                    if (self.state.image.length === 0) {
-                        self.setState({NoImg: true})
-                    }
+            response.then(value=>{
 
-                })
-                .catch(error => {
-                    console.log(error);
-                })
+                self.setState({image: value.data});
+                if (value.data.length === 0) {
+                    self.setState({NoImg: true})
+                }
+            })
         }
+
 
     }
     handleShow() {

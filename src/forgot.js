@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import {Col, Alert, Panel,Button, Form, FormGroup, FormControl} from 'react-bootstrap';
 import ip from './env'
+import Popup from 'react-popup';
+import './Css/PopupStyle.css'
 
 class Forgot extends Component{
     constructor(props){
@@ -21,24 +23,44 @@ class Forgot extends Component{
     HandleEmail =(event)=>{
         event.preventDefault();
         const self =this;
-        console.log(this.state.user_email);
-        axios.post(`${ip}/api/forgot`, {
-            Femail:self.state.user_email
-        })
-            .then(function (response) {
-                console.log(response);
-                if(response.data.error === true){
-                    self.setState({wrongEmail:true})
-                }
-                else{
-                    self.setState({sendMail:true, wrongEmail:false})
+        const email= document.getElementById('email2').value;
+        if(!email){
+            Popup.create({
+                title:'Null value alert',
+                content:"Email field cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
+        }
+        else{
+            axios.post(`${ip}/api/forgot`, {
+                Femail:self.state.user_email
+            })
+                .then(function (response) {
+                    console.log(response);
+                    if(response.data.error === true){
+                        self.setState({wrongEmail:true})
+                    }
+                    else{
+                        self.setState({sendMail:true, wrongEmail:false})
+                    }
+                })
+        }
+
 
     };
     render(){
         return(
             <div id="forgot" >
+                <Popup/>
                 <Col md={4} mdOffset={4} >
                     <Panel bsStyle="default" >
                         <Panel.Body>
@@ -57,7 +79,7 @@ class Forgot extends Component{
                         <h5>Enter your registered email Id to get password reset link</h5>
                         <Form onSubmit={this.HandleEmail} >
                             <FormGroup>
-                                <FormControl type="email" onChange={this.Email1} placeholder="Enter email" name="email" />
+                                <FormControl type="email" id="email2" onChange={this.Email1} placeholder="Enter email" />
 
                             </FormGroup>
                             <Col >

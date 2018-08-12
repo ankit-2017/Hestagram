@@ -109,8 +109,11 @@ class Login extends Component{
 
                 if(response.data.data===true && response.data.verify===true){
 
-                    const UserData= new LocalStorage('UserData');
-                    UserData.put("UserData", response.data);
+                    const UserData= new LocalStorage("UserData");
+                    const token= new LocalStorage("token");
+                    UserData.put("UserData",response.data);
+                    token.put("token", response.data.tokenData.verification_token);
+
                     self.setState({login_success:true,
                         email2:response.data.email,
                         name:response.data.name,
@@ -124,6 +127,24 @@ class Login extends Component{
                     else {
                         self.props.history.push('/suggestion')
                     }
+
+                    const foo = new LocalStorage('UserData');
+                    const abc = foo.get('UserData');
+                    if(abc[1]) {
+
+                        const token = abc[1].tokenData.verification_token
+                        setAuthToken(token);
+                    }
+
+                    function setAuthToken(token) {
+                        axios.defaults.headers.common['Token'] = '';
+                        delete axios.defaults.headers.common['Token'];
+
+                        if (token) {
+                            axios.defaults.headers.common['Token'] = `${token}`;
+                        }
+                    }
+
                 }
                 else
                 {
@@ -188,9 +209,7 @@ class Login extends Component{
                                     <Panel bsStyle="default">
 
                                             <p id="signup-link">Not have an account <Link  to="/SignUp" >Sign up</Link> </p>
-                                            <p id="admin_login" >
-                                                <Link to="/admin">admin login</Link>
-                                            </p>
+
 
                                     </Panel>
 

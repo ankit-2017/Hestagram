@@ -20,7 +20,8 @@ class User extends Component{
             image:[],
             gallery:[],
             visible: false,
-            follower:''
+            follower:'',
+            visibleProfile:false
 
         }
     }
@@ -114,11 +115,16 @@ class User extends Component{
                                              className="img-circle"
                                              alt="Profile pic"/>
                                         :
-                                        <img src={`${ip}/upload/assets/profile/`+this.state.userData2.data2.profile_img}
-                                             id="user_profile"
-                                             className="img-circle"
-                                             alt="profile"
-                                        />
+                                        <span>
+                                            <img src={`${ip}/upload/assets/profile/`+this.state.userData2.data2.profile_img}
+                                                 id="user_profile"
+                                                 className="img-circle"
+                                                 alt="profile"
+                                                 onClick={() => {
+                                                     this.setState({visibleProfile: !this.state.visibleProfile});
+                                                 }}
+                                            />
+                                        </span>
                                     }
                                 </div>
                             </Col>

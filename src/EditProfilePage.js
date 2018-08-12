@@ -17,6 +17,8 @@ import {image64toCanvasRef,
     extractImageFileExtensionFromBase64,
     base64StringtoFile,
     downloadBase64File} from './ReusableUtils'
+import Popup from 'react-popup'
+import './Css/PopupStyle.css'
 
 const imageMaxSize=1000000 //bytes
 const acceptedFileType ='image/png, image/jpg, image/jpeg'
@@ -34,6 +36,7 @@ class EditProfilePage extends Component{
             userDetail:'',
             search:'',
             value:'',
+            RawImage:'',
             view:true,
             showform:false,
             cityView:true,
@@ -53,6 +56,7 @@ class EditProfilePage extends Component{
             showPic:true,
             profilePicture:'',
             ProfileData:'',
+            withoutCrop:true,
 
             imgSrc:null,
             cropedImage:null,
@@ -120,134 +124,254 @@ class EditProfilePage extends Component{
 
     SaveName=()=>{
         const name=document.getElementById('name').value;
-        const self=this;
-        axios.post(`${ip}/api/EditName`,{
-            username:this.state.UserData.data2.username,
-            name: name
-        })
-            .then(response=>{
-                console.log('Edited Name', response);
-                if(response.data.error===false){
-                    self.setState({nameChanged:true,message:response.data.message});
-                    let view1= self.state.view;
-                    let show = self.state.showform;
-                    self.setState({view:!view1, showform:!show});
-                    window.location='/Edit-profile';
+        if(name===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
-            .catch(error=>{
-                console.log('error');
+            return false
+        }
+        else {
+
+            const self = this;
+            axios.post(`${ip}/api/EditName`, {
+                username: this.state.UserData.data2.username,
+                name: name
             })
+                .then(response => {
+                    if (response.data.error === false) {
+                        self.setState({nameChanged: true, message: response.data.message});
+                        let view1 = self.state.view;
+                        let show = self.state.showform;
+                        self.setState({view: !view1, showform: !show});
+                        window.location = '/Edit-profile';
+                    }
+                })
+                .catch(error => {
+                    console.log('error');
+                })
+        }
     }
 
     SaveCity=()=>{
         const city=document.getElementById('city1').value;
-        const self=this;
-        axios.post(`${ip}/api/EditCity`,{
-            username:this.state.UserData.data2.username,
-            city: city
-        })
-            .then(response=>{
-                console.log('Edited Name', response);
-                if(response.data.error===false){
-                    self.setState({nameChanged:true,message:response.data.message});
-                    let view1= self.state.cityView;
-                    let show = self.state.cityform;
-                    self.setState({cityView:!view1, cityform:!show});
-                    window.location='/Edit-profile';
+        if(city===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
-            .catch(error=>{
-                console.log('error');
+            return false
+        }
+        else {
+
+            const self = this;
+            axios.post(`${ip}/api/EditCity`, {
+                username: this.state.UserData.data2.username,
+                city: city
             })
+                .then(response => {
+                    console.log('Edited Name', response);
+                    if (response.data.error === false) {
+                        self.setState({nameChanged: true, message: response.data.message});
+                        let view1 = self.state.cityView;
+                        let show = self.state.cityform;
+                        self.setState({cityView: !view1, cityform: !show});
+                        window.location = '/Edit-profile';
+                    }
+                })
+                .catch(error => {
+                    console.log('error');
+                })
+        }
     }
 
     SaveSchool=()=>{
         const school=document.getElementById('school').value;
-        const self=this;
-        axios.post(`${ip}/api/EditSchool`,{
-            username:this.state.UserData.data2.username,
-            school: school
-        })
-            .then(response=>{
-                console.log('Edited Name', response);
-                if(response.data.error===false){
-                    self.setState({nameChanged:true,message:response.data.message});
-                    let view1= self.state.schoolView;
-                    let show = self.state.schoolform;
-                    self.setState({schoolView:!view1, schoolform:!show});
-                    window.location='/Edit-profile';
+        if(school===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
-            .catch(error=>{
-                console.log('error');
+            return false
+        }
+        else {
+
+            const self = this;
+            axios.post(`${ip}/api/EditSchool`, {
+                username: this.state.UserData.data2.username,
+                school: school
             })
+                .then(response => {
+                    console.log('Edited Name', response);
+                    if (response.data.error === false) {
+                        self.setState({nameChanged: true, message: response.data.message});
+                        let view1 = self.state.schoolView;
+                        let show = self.state.schoolform;
+                        self.setState({schoolView: !view1, schoolform: !show});
+                        window.location = '/Edit-profile';
+                    }
+                })
+                .catch(error => {
+                    console.log('error');
+                })
+        }
     }
 
     SaveCollege=()=>{
         const college=document.getElementById('college').value;
-        const self=this;
-        axios.post(`${ip}/api/EditCollege`,{
-            username:this.state.UserData.data2.username,
-            college: college
-        })
-            .then(response=>{
-                console.log('Edited Name', response);
-                if(response.data.error===false){
-                    self.setState({nameChanged:true,message:response.data.message});
-                    let view1= self.state.collegeView;
-                    let show = self.state.collegeform;
-                    self.setState({collegeView:!view1, collegeform:!show});
-                    window.location='/Edit-profile';
+        if(college===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
-            .catch(error=>{
-                console.log('error');
+            return false
+        }
+        else {
+
+            const self = this;
+            axios.post(`${ip}/api/EditCollege`, {
+                username: this.state.UserData.data2.username,
+                college: college
             })
+                .then(response => {
+                    console.log('Edited Name', response);
+                    if (response.data.error === false) {
+                        self.setState({nameChanged: true, message: response.data.message});
+                        let view1 = self.state.collegeView;
+                        let show = self.state.collegeform;
+                        self.setState({collegeView: !view1, collegeform: !show});
+                        window.location = '/Edit-profile';
+                    }
+                })
+                .catch(error => {
+                    console.log('error');
+                })
+        }
     }
 
     SaveEmail=()=>{
         const email=document.getElementById('Email').value;
-        const self=this;
-        axios.post(`${ip}/api/EditEmail`,{
-            username:this.state.UserData.data2.username,
-            email: email
-        })
-            .then(response=>{
-                console.log('Edited Name', response);
-                if(response.data.error===false){
-                    self.setState({nameChanged:true,message:response.data.message});
-                    let view1= self.state.EmailView;
-                    let show = self.state.Emailform;
-                    self.setState({EmailView:!view1, Emailform:!show});
-                    window.location='/Edit-profile';
+        if(email===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
-            .catch(error=>{
-                console.log('error');
+            return false
+        }
+        else {
+
+            const self = this;
+            axios.post(`${ip}/api/EditEmail`, {
+                username: this.state.UserData.data2.username,
+                email: email
             })
+                .then(response => {
+                    console.log('Edited Name', response);
+                    if (response.data.error === false) {
+                        self.setState({nameChanged: true, message: response.data.message});
+                        let view1 = self.state.EmailView;
+                        let show = self.state.Emailform;
+                        self.setState({EmailView: !view1, Emailform: !show});
+                        window.location = '/Edit-profile';
+                    }
+                })
+                .catch(error => {
+                    console.log('error');
+                })
+        }
     }
 
     SaveMobile=()=>{
         const mobile=document.getElementById('mobile').value;
-        const self=this;
-        axios.post(`${ip}/api/EditMobile`,{
-            username:this.state.UserData.data2.username,
-            mobile: mobile
-        })
-            .then(response=>{
-                console.log('Edited Name', response);
-                if(response.data.error===false){
-                    self.setState({nameChanged:true,message:response.data.message});
-                    let view1= self.state.MobileView;
-                    let show = self.state.Mobileform;
-                    self.setState({MobileView:!view1, Mobileform:!show});
-                    window.location='/Edit-profile';
+        if(mobile===""){
+            Popup.create({
+                title:'Null value alert',
+                content:"Fields cannot be empty",
+                buttons:{
+                    right:[{
+                        text:'Cancel',
+                        className:'danger',
+                        action:function () {
+                            Popup.close();
+                        }
+
+                    }]
                 }
             })
-            .catch(error=>{
-                console.log('error');
+            return false
+        }
+        else {
+
+            const self = this;
+            axios.post(`${ip}/api/EditMobile`, {
+                username: this.state.UserData.data2.username,
+                mobile: mobile
             })
+                .then(response => {
+                    console.log('Edited Name', response);
+                    if (response.data.error === false) {
+                        self.setState({nameChanged: true, message: response.data.message});
+                        let view1 = self.state.MobileView;
+                        let show = self.state.Mobileform;
+                        self.setState({MobileView: !view1, Mobileform: !show});
+                        window.location = '/Edit-profile';
+
+                    }
+                })
+                .catch(error => {
+                    console.log('error');
+                })
+        }
     }
     handleHide=()=>{
         this.setState({show:false})
@@ -283,7 +407,7 @@ class EditProfilePage extends Component{
                 myFileItemReader.addEventListener("load",()=>{
                     console.log(myFileItemReader.result)
                     self.setState({
-                        imgSrc:myFileItemReader.result
+                        imgSrc:myFileItemReader.result,RawImage:files[0]
                     })
                 }, false)
                 myFileItemReader.readAsDataURL(currentFile)
@@ -324,7 +448,7 @@ class EditProfilePage extends Component{
         //file to upload
         const myNewCropedFile = base64StringtoFile(image64Data, myFileName)
         console.log(myNewCropedFile)
-        this.setState({cropedImage:myNewCropedFile, showSaveButton:true})
+        this.setState({cropedImage:myNewCropedFile?myNewCropedFile:this.state.RawImage, showSaveButton:true, withoutCrop:false})
 
 
         // downloadBase64File(image64Data, myFileName);
@@ -335,19 +459,18 @@ class EditProfilePage extends Component{
     saveImage =(event)=>{
         event.preventDefault();
 
-        if(this.state.cropedImage===""){
+        if(this.state.cropedImage==="" || this.state.RawImage==="" ){
             alert('file cannot be empty');
             return false
 
         }
         else {
             const self = this;
-            this.fileUpload(this.state.cropedImage, self.state.UserData.data2.username)
+            this.fileUpload(this.state.cropedImage?this.state.cropedImage:this.state.RawImage, self.state.UserData.data2.username)
                 .then((response) => {
                     console.log(response);
                     self.setState({ProfileData: response.data.Picdata.profile_img});
-                    
-                    alert("Change to profile Image will affect after Logout");
+
                     document.location.href = '/Edit-profile';
                 })
                 .catch((err) => {
@@ -402,6 +525,7 @@ class EditProfilePage extends Component{
         return(
             <div >
                 <div id="top-detail">
+                    <Popup />
                     <Row >
                         {this.state.nameChanged?<Alert bsStyle='success'>{this.state.message}</Alert>:null}
                         <Col md={2} sm={2} xs={2} >
@@ -460,6 +584,11 @@ class EditProfilePage extends Component{
                                                     <div>
                                                             <canvas id="mycanvas" ref={this.imagePreviewCanvasRef}></canvas>
                                                             <Button bsStyle="success" onClick={this.handleDownloadClick}>Done Cropping</Button>
+                                                        {this.state.withoutCrop ?
+                                                            <Button bsStyle="primary" onClick={this.saveImage}>Save
+                                                                without crop </Button>
+                                                            : null
+                                                        }
                                                     </div>
 
                                                 </div> :
